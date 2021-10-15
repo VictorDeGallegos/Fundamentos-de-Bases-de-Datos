@@ -248,7 +248,7 @@ public class ClientesMain {
 					// verificar si
 					// ya existe
 					id = Integer.parseInt(br.readLine());
-					flag = ValidarMetodos.checkID(id, list);
+					flag = ValidarMetodosClientes.checkID(id, list);
 					// condición si bandera == verdadero mostrar ID de mensaje ya existe
 					if (flag == true) {
 						System.out.println();
@@ -262,8 +262,8 @@ public class ClientesMain {
 				// y si el
 				// el campo no está en blanco
 				do {
-					nombre = ValidarMetodos.getOnlyLetters("Ingrese el Nombre del cliente (solo letras): ");
-					ValidarMetodos.emptyField(nombre);
+					nombre = ValidarMetodosClientes.getOnlyLetters("Ingrese el Nombre del cliente (solo letras): ");
+					ValidarMetodosClientes.emptyField(nombre);
 					// Mientras el campo está vacío, solicite al usuario que ingrese nuevamente
 				} while (nombre.isEmpty());
 
@@ -271,8 +271,9 @@ public class ClientesMain {
 				// y si el
 				// el campo no está vacio
 				do {
-					apellidoPaterno = ValidarMetodos.getOnlyLetters("Ingresa el Apellido Paterno del cliente (solo letras): ");
-					ValidarMetodos.emptyField(apellidoPaterno);
+					apellidoPaterno = ValidarMetodosClientes
+							.getOnlyLetters("Ingresa el Apellido Paterno del cliente (solo letras): ");
+					ValidarMetodosClientes.emptyField(apellidoPaterno);
 					// Mientras el campo está vacío, solicite a la usuario que ingrese nuevamente
 				} while (apellidoPaterno.isEmpty());
 
@@ -280,8 +281,9 @@ public class ClientesMain {
 				// y si el
 				// no esta vacio
 				do {
-					apellidoMaterno = ValidarMetodos.getOnlyLetters("Ingresa el Apellido Materno del cliente (solo letras): ");
-					ValidarMetodos.emptyField(apellidoMaterno);
+					apellidoMaterno = ValidarMetodosClientes
+							.getOnlyLetters("Ingresa el Apellido Materno del cliente (solo letras): ");
+					ValidarMetodosClientes.emptyField(apellidoMaterno);
 					// Mientras el campo está vacío, solicite al usuario que ingrese nuevamente
 				} while (apellidoMaterno.isEmpty());
 
@@ -289,9 +291,9 @@ public class ClientesMain {
 				// correo electrónico válido y si
 				// el campo no esta en vacio
 				do {
-					email = ValidarMetodos.getEmail("Ingresa el Email del cliente: ");
+					email = ValidarMetodosClientes.getEmail("Ingresa el Email del cliente: ");
 					// ValidationMethods.emptyField(email);
-					if (ValidarMetodos.emptyField(email))
+					if (ValidarMetodosClientes.emptyField(email))
 						email = "";
 					// Mientras el campo está vacío, solicite al usuario que ingrese nuevamente
 				} while (email.isEmpty());
@@ -301,8 +303,8 @@ public class ClientesMain {
 				// el campo no esta vacio
 				do {
 					// System.out.println("Please enter Clientes telefono number (numbers only): ");
-					telefono = ValidarMetodos.getPhone("Ingresa el numero de telefono del cliente (solo numeros): ");
-					ValidarMetodos.emptyField(telefono);
+					telefono = ValidarMetodosClientes.getPhone("Ingresa el numero de telefono del cliente (solo numeros): ");
+					ValidarMetodosClientes.emptyField(telefono);
 					System.out.println();
 					// Mientras el campo está vacío, solicite al usuario que ingrese nuevamente
 				} while (telefono.isEmpty());
@@ -404,8 +406,8 @@ public class ClientesMain {
 				// Pídale al usuario que ingrese los datos de Cliente por nombre
 				case "2":
 					do {
-						nombre = ValidarMetodos.getOnlyLetters("Ingresa el nombre del cliente: ");
-						ValidarMetodos.emptyField(nombre);
+						nombre = ValidarMetodosClientes.getOnlyLetters("Ingresa el nombre del cliente: ");
+						ValidarMetodosClientes.emptyField(nombre);
 						// Si el campo está vacío, solicite al usuario que ingrese nuevamente
 					} while (nombre.isEmpty());
 					found = false;
@@ -429,8 +431,8 @@ public class ClientesMain {
 				// pedirle al usuario que ingrese los detalles de Clientes por apellido paterno
 				case "3":
 					do {
-						apellidoPaterno = ValidarMetodos.getOnlyLetters("Ingresa el Apellido paterno del cliente: ");
-						ValidarMetodos.emptyField(apellidoPaterno);
+						apellidoPaterno = ValidarMetodosClientes.getOnlyLetters("Ingresa el Apellido paterno del cliente: ");
+						ValidarMetodosClientes.emptyField(apellidoPaterno);
 						// Si el campo está vacío, solicite al usuario que ingrese nuevamente
 					} while (apellidoPaterno.isEmpty());
 					found = false;
@@ -588,8 +590,8 @@ public class ClientesMain {
 						// Pídale al usuario que ingrese el Nombre del Cliente si la opción es 1
 						case "1":
 							do {
-								nombre = ValidarMetodos.getOnlyLetters("Ingresa el nuevo Nombre del cliente (solo letras): ");
-								ValidarMetodos.emptyField(nombre);
+								nombre = ValidarMetodosClientes.getOnlyLetters("Ingresa el nuevo Nombre del cliente (solo letras): ");
+								ValidarMetodosClientes.emptyField(nombre);
 								// Si el campo está vacío, solicite al usuario que ingrese nuevamente
 							} while (nombre.isEmpty());
 							System.out.println();
@@ -598,9 +600,9 @@ public class ClientesMain {
 						// es 2
 						case "2":
 							do {
-								apellidoPaterno = ValidarMetodos
+								apellidoPaterno = ValidarMetodosClientes
 										.getOnlyLetters("Ingresa el nuevo Apellido paterno del cliente (solo letras): ");
-								ValidarMetodos.emptyField(apellidoPaterno);
+								ValidarMetodosClientes.emptyField(apellidoPaterno);
 								// Si el campo está vacío, solicite al usuario que ingrese nuevamente
 							} while (apellidoPaterno.isEmpty());
 							System.out.println();
@@ -609,9 +611,9 @@ public class ClientesMain {
 						// es 3
 						case "3":
 							do {
-								apellidoMaterno = ValidarMetodos
+								apellidoMaterno = ValidarMetodosClientes
 										.getOnlyLetters("Ingresa el nuevo apellido materno del cliente (solo letras): ");
-								ValidarMetodos.emptyField(apellidoMaterno);
+								ValidarMetodosClientes.emptyField(apellidoMaterno);
 								// Si el campo está vacío, solicite al usuario que ingrese nuevamente
 							} while (apellidoPaterno.isEmpty());
 							System.out.println();
@@ -620,8 +622,8 @@ public class ClientesMain {
 						// es 4
 						case "4":
 							do {
-								email = ValidarMetodos.getEmail("Ingresa el nuevo email del cliente: ");
-								ValidarMetodos.emptyField(email);
+								email = ValidarMetodosClientes.getEmail("Ingresa el nuevo email del cliente: ");
+								ValidarMetodosClientes.emptyField(email);
 								// Si el campo está vacío, solicite al usuario que ingrese nuevamente
 							} while (email.isEmpty());
 							System.out.println();
@@ -629,8 +631,8 @@ public class ClientesMain {
 						// Pedirle al usuario que ingrese el telefono del Cliente si la opcion es 5
 						case "5":
 							do {
-								telefono = ValidarMetodos.getPhone("Ingresa el nuevo telefono del cliente: ");
-								ValidarMetodos.emptyField(telefono);
+								telefono = ValidarMetodosClientes.getPhone("Ingresa el nuevo telefono del cliente: ");
+								ValidarMetodosClientes.emptyField(telefono);
 								// Si el campo está vacío, solicite al usuario que ingrese nuevamente
 							} while (telefono.isEmpty());
 							System.out.println();
