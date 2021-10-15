@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 // Clase ValidarMetodos
-public class ValidarMetodos {
+public class ValidarMetodosClientes {
 	// Variable Global
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
