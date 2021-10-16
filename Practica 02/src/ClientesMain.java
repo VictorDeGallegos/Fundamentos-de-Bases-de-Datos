@@ -264,7 +264,8 @@ public class ClientesMain {
 				// y si el
 				// el campo no está en blanco
 				do {
-					nombre = ValidarMetodosClientes.getOnlyLetters("Ingrese el Nombre del cliente (solo letras): ");
+					nombre = ValidarMetodosClientes
+							.getOnlyLettersSpace("Ingrese el o los Nombres(s) del cliente (solo letras): ");
 					ValidarMetodosClientes.emptyField(nombre);
 					// Mientras el campo está vacío, solicite al usuario que ingrese nuevamente
 				} while (nombre.isEmpty());

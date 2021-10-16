@@ -43,6 +43,38 @@ public class ValidarMetodosClientes {
 		return letters;
 	}
 
+	// Método que verifica si la entrada del usuario es solo letras y espacios y
+	// muestra
+	// mensajes de error
+	// en caso de que la entrada sea otra cosa (por ejemplo: números)
+	public static String getOnlyLettersSpace(String lineMessage) {
+		boolean check = true;
+		String letters = "";
+		// bucle que verificará si la entrada del usuario son letras
+		do {
+			check = true;
+			System.out.print(lineMessage);
+			try {
+				letters = br.readLine();
+			} catch (IOException | StringIndexOutOfBoundsException e) {
+				System.out.println("Error al recibir letras");
+			}
+			// condición que atraviesa el tamaño de las letras y cambia el valor a false
+
+			for (int l = 0; l < letters.length(); l++) {
+				if ((((int) letters.charAt(l) < 65) || ((int) letters.charAt(l) > 90))
+						&& (((int) letters.charAt(l) < 97) || ((int) letters.charAt(l) > 122))
+						&& ((int) letters.charAt(l) != 32)) /* SPACE */
+
+					check = false;
+			}
+			if (check == false)
+				System.out.println("¡Entrada inválida! ¡Intentar otra vez!");
+			// El bucle se ejecuta mientras la verificación == falsa
+		} while (check == false);
+		return letters;
+	}
+
 	// Método que verifica si el correo electrónico es válido, muestra un mensaje de
 	// error en caso de el formato sea incorrecto
 	public static String getEmail(String lineMessage) {
