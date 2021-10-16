@@ -12,18 +12,20 @@ public class Clientes {
 	private int id;
 	private String apellidoPaterno;
 	private String apellidoMaterno;
+	private String curp;
 	private String nombre;
 	private String email;
-	private String telefono;
+	private String puntosdePromociones;
 
-	public Clientes(int id, String apellidoPaterno, String apellidoMaterno, String nombre, String email,
-			String telefono) {
+	public Clientes(int id, String apellidoPaterno, String apellidoMaterno, String nombre, String curp, String email,
+			String puntosdePromociones) {
 		this.id = id;
 		this.apellidoPaterno = apellidoPaterno;
 		this.apellidoMaterno = apellidoMaterno;
 		this.nombre = nombre;
+		this.curp = curp;
 		this.email = email;
-		this.telefono = telefono;
+		this.puntosdePromociones = puntosdePromociones;
 	}
 
 	// setters y getters
@@ -43,12 +45,16 @@ public class Clientes {
 		this.nombre = nombre;
 	}
 
+	public void setCurp(String curp) {
+		this.curp = curp;
+	}
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
 
-	public void setTelefono(String telefono) {
-		this.telefono = telefono;
+	public void setpuntosdePromociones(String puntosdePromociones) {
+		this.puntosdePromociones = puntosdePromociones;
 	}
 
 	public int getId() {
@@ -67,20 +73,24 @@ public class Clientes {
 		return this.nombre;
 	}
 
+	public String getCurp() {
+		return this.curp;
+	}
+
 	public String getEmail() {
 		return this.email;
 	}
 
-	public String getTelefono() {
-		return this.telefono;
+	public String getpuntosdePromociones() {
+		return this.puntosdePromociones;
 	}
 
 	// class toString
 	public String toString() {
 
 		String s = "ID Cliente: " + this.id + "\n" + "Nombre: " + this.nombre + "\n" + "Apellido Paterno: "
-				+ this.apellidoPaterno + "\n" + "Apellido Materno: " + this.apellidoMaterno + "\n" + "E-mail: " + this.email
-				+ "\n" + "Telefono: " + this.telefono + "\n";
+				+ this.apellidoPaterno + "\n" + "Apellido Materno: " + this.apellidoMaterno + "\n" + "CURP:" + this.curp + "\n"
+				+ "E-mail: " + this.email + "\n" + "Puntos de promociones: " + this.puntosdePromociones + "\n";
 		return s;
 	}
 

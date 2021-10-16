@@ -57,10 +57,13 @@ public class ValidarMetodosClientes {
 			} catch (IOException e) {
 				System.out.println("Error al recibir el email");
 			}
+			// ASCII
 			for (int l = 0; l < letters.length(); l++) {
 				if ((((int) letters.charAt(l) < 65) || ((int) letters.charAt(l) > 90)) && /* A - Z */
 						(((int) letters.charAt(l) < 97) || ((int) letters.charAt(l) > 122)) && /* a - z */
+						(((int) letters.charAt(l) < 48) || ((int) letters.charAt(l) > 57)) && /* 0 - 9 */
 						((int) letters.charAt(l) != 46) && /* . */
+						((int) letters.charAt(l) != 95) && /* _ */
 						((int) letters.charAt(l) != 64)) /* @ */
 					check = false;
 			}
@@ -77,6 +80,35 @@ public class ValidarMetodosClientes {
 					System.out.println("Formato no válido, ingrese correo electrónico valido");
 				}
 			}
+			// El bucle se ejecuta mientras la verificación == falsa
+		} while (check == false);
+		return letters;
+	}
+
+	// Método que verifica si el correo curp es válido, muestra un mensaje de
+	// error en caso de el formato sea incorrecto
+	public static String getCurp(String lineMessage) {
+		boolean check = true;
+		String letters = "";
+		// bucle que comprobará el formato del curp
+		do {
+			check = true;
+			System.out.print(lineMessage);
+			try {
+				letters = br.readLine();
+			} catch (IOException e) {
+				System.out.println("Error al recibir el CURP");
+			}
+			// ASCII
+			for (int l = 0; l < letters.length(); l++) {
+				if ((((int) letters.charAt(l) < 65) || ((int) letters.charAt(l) > 90)) && /* A - Z */
+						(((int) letters.charAt(l) < 97) || ((int) letters.charAt(l) > 122)) && /* a - z */
+						(((int) letters.charAt(l) < 48) || ((int) letters.charAt(l) > 57))) /* 0 - 9 */
+					check = false;
+			}
+			if (check == false)
+				System.out.println("¡Entrada inválida! ¡Intentar otra vez!");
+
 			// El bucle se ejecuta mientras la verificación == falsa
 		} while (check == false);
 		return letters;
@@ -114,7 +146,7 @@ public class ValidarMetodosClientes {
 	}
 
 	// Método que verifica el número de teléfono
-	public static String getPhone(String lineMessage) {
+	public static String getPromo(String lineMessage) {
 		boolean flag = true;
 		String letters = "";
 		// bucle que ejecutará el programa para verificar el número de teléfono y tratar
@@ -125,7 +157,7 @@ public class ValidarMetodosClientes {
 			System.out.print(lineMessage);
 			try {
 				letters = br.readLine();
-				if (letters.length() != 10) {
+				if (letters.length() != 4) {
 					flag = false;
 				}
 				for (int l = 0; l < letters.length(); l++) {
@@ -138,7 +170,7 @@ public class ValidarMetodosClientes {
 			// condición que muestra un mensaje en caso de que la entrada del usuario esté
 			// en el formato incorrecto
 			if (flag == false)
-				System.out.println("Numero invalido! Ingresa un numero de telefono valido (10 digitos - solo numeros).");
+				System.out.println("Numero invalido! Ingresa los puntos de promociones correctos (4 digitos - solo numeros).");
 		}
 		// condición que ejecutará el ciclo mientras la bandera sea falsa
 		while (flag == false);
