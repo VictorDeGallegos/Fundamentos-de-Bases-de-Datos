@@ -88,7 +88,7 @@ public class ValidarMetodosProducto {
 			System.out.print(lineMessage);
 			try {
 				letters = br.readLine();
-				if (letters.length() != 10) {
+				if (letters.length() != 2) {
 					flag = false;
 				}
 				for (int l = 0; l < letters.length(); l++) {
@@ -101,7 +101,7 @@ public class ValidarMetodosProducto {
 			// condición que muestra un mensaje en caso de que la entrada del usuario esté
 			// en el formato incorrecto
 			if (flag == false)
-				System.out.println("Numero invalido! Ingresa un numero de telefono valido (10 digitos - solo numeros).");
+				System.out.println("Numero invalido! Ingresa una cantidad valida (2  digitos - solo numeros).");
 		}
 		// condición que ejecutará el ciclo mientras la bandera sea falsa
 		while (flag == false);
