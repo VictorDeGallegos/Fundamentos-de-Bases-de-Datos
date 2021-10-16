@@ -437,7 +437,7 @@ public class ClientesMain {
 				// Pídale al usuario que ingrese los datos de Cliente por nombre
 				case "2":
 					do {
-						nombre = ValidarMetodosClientes.getOnlyLetters("Ingresa el nombre del cliente: ");
+						nombre = ValidarMetodosClientes.getOnlyLettersSpace("Ingresa el nombre del cliente: ");
 						ValidarMetodosClientes.emptyField(nombre);
 						// Si el campo está vacío, solicite al usuario que ingrese nuevamente
 					} while (nombre.isEmpty());
@@ -653,7 +653,8 @@ public class ClientesMain {
 						// Pídale al usuario que ingrese el Nombre del Cliente si la opción es 1
 						case "1":
 							do {
-								nombre = ValidarMetodosClientes.getOnlyLetters("Ingresa el nuevo Nombre del cliente (solo letras): ");
+								nombre = ValidarMetodosClientes
+										.getOnlyLettersSpace("Ingresa el nuevo Nombre del cliente (solo letras): ");
 								ValidarMetodosClientes.emptyField(nombre);
 								// Si el campo está vacío, solicite al usuario que ingrese nuevamente
 							} while (nombre.isEmpty());
@@ -685,7 +686,7 @@ public class ClientesMain {
 						// es 4
 						case "4":
 							do {
-								curp = ("Ingresa el CURP del cliente (solo letras): ");
+								curp = ValidarMetodosClientes.getCurp("Ingresa el CURP del cliente (solo letras): ");
 								ValidarMetodosClientes.emptyField(curp);
 								// Si el campo está vacío, solicite al usuario que ingrese nuevamente
 							} while (curp.isEmpty());
@@ -695,7 +696,7 @@ public class ClientesMain {
 						// es 4
 						case "5":
 							do {
-								direccion = ("Ingresa la Direccion del cliente: ");
+								direccion = ValidarMetodosClientes.getOnlyLettersSpaceNumber("Ingresa la Direccion del cliente: ");
 								ValidarMetodosClientes.emptyField(direccion);
 								// Si el campo está vacío, solicite al usuario que ingrese nuevamente
 							} while (direccion.isEmpty());
