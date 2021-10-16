@@ -70,7 +70,7 @@ public class Producto {
      */
     @Override
     public String toString() {
-        String s = "Precio " + this.precio + "\n" + "Disponibles: " + this.stock + "\n" + "Descripcion: "
+        String s = "Precio: " + this.precio + "\n" + "Disponibles: " + this.stock + "\n" + "Descripcion: "
                 + this.descripcion + "\n" + "Nombre archivo img: " + this.nombre + "\n" + "Descuento: " + this.descuento
                 + "%";
         return s;

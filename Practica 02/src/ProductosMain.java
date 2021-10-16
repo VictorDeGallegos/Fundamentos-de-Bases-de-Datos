@@ -242,7 +242,7 @@ public class ProductosMain {
 				// y si el
 				// el campo no está en blanco
 				do {
-					nombre = ValidarMetodosProducto.getOnlyLetters("Ingrese el Nombre del Producto (solo letras): ");
+					nombre = ValidarMetodosProducto.getOnlyLettersSpace("Ingrese el Nombre del Producto (solo letras): ");
 					ValidarMetodosProducto.emptyField(nombre);
 					// Mientras el campo está vacío, solicite al usuario que ingrese nuevamente
 				} while (nombre.isEmpty());
@@ -285,7 +285,7 @@ public class ProductosMain {
 				// no esta vacio
 				do {
 					descripcion = ValidarMetodosProducto
-							.getOnlyLetters("Ingresa una pequeña descripcion del articulo (solo letras): ");
+							.getOnlyLettersSpace("Ingresa una pequeña descripcion del articulo (solo letras): ");
 					ValidarMetodosProducto.emptyField(descripcion);
 					// Mientras el campo está vacío, solicite al usuario que ingrese nuevamente
 				} while (descripcion.isEmpty());
@@ -371,7 +371,7 @@ public class ProductosMain {
 				// pedirle al usuario que ingrese los detalles de un Producto por nombre
 				case "1":
 					do {
-						nombre = ValidarMetodosProducto.getOnlyLetters("Ingresa el nombre del Producto: ");
+						nombre = ValidarMetodosProducto.getOnlyLettersSpace("Ingresa el nombre del Producto: ");
 						ValidarMetodosProducto.emptyField(nombre);
 						// Si el campo está vacío, solicite al usuario que ingrese nuevamente
 					} while (nombre.isEmpty());
@@ -428,7 +428,7 @@ public class ProductosMain {
 				// pedirle al usuario que ingrese una pequeña descripcion del producto
 				case "3":
 					do {
-						descripcion = ValidarMetodosProducto.getOnlyLetters("Ingresa el Apellido paterno del Producto: ");
+						descripcion = ValidarMetodosProducto.getOnlyLetters("Ingresa la descripcion Producto: ");
 						ValidarMetodosProducto.emptyField(descripcion);
 						// Si el campo está vacío, solicite al usuario que ingrese nuevamente
 					} while (descripcion.isEmpty());
@@ -564,9 +564,9 @@ public class ProductosMain {
 				descripcion = prod.getDescripcion();
 				descuento = prod.getDescuento();
 				do {
-					System.out.println(
-							"Nombre del producto " + nombre + "\n" + "Precio" + prod.getPrecio() + "\n" + "Disponibilidad " + stock
-									+ "\n" + "Descripcion: " + descripcion + "\n" + "Descuento disponible " + descuento + "\n" + "\n");
+					System.out.println("Nombre del producto " + nombre + "\n" + "Precio" + prod.getPrecio() + "\n"
+							+ "Disponibilidad " + stock + "\n" + "Descripcion: " + descripcion + "\n" + "Descuento disponible: "
+							+ descuento + "%" + "\n" + "\n");
 					System.out.println("*****************************************");
 					System.out.println("Selecciona la opcion que desea editar del Producto:    ");
 					System.out.println("| 1 - Nombre del Producto                       |");
@@ -585,7 +585,8 @@ public class ProductosMain {
 						// Pídale al usuario que ingrese el Nombre del Producto si la opción es 1
 						case "1":
 							do {
-								nombre = ValidarMetodosProducto.getOnlyLetters("Ingresa el nuevo nombre del producto (solo letras): ");
+								nombre = ValidarMetodosProducto
+										.getOnlyLettersSpace("Ingresa el nuevo nombre del producto (solo letras): ");
 								ValidarMetodosProducto.emptyField(nombre);
 								// Si el campo está vacío, solicite al usuario que ingrese nuevamente
 							} while (nombre.isEmpty());
@@ -596,7 +597,7 @@ public class ProductosMain {
 						case "2":
 							do {
 								stock = ValidarMetodosProducto
-										.getOnlyLetters("Ingresa la nueva disponibilidad  (solo letras, Ej. Disponible, Nodisponible): ");
+										.getOnlyLettersSpace("Ingresa la nueva disponibilidad  (solo letras, Ej. Si, No): ");
 								ValidarMetodosProducto.emptyField(stock);
 								// Si el campo está vacío, solicite al usuario que ingrese nuevamente
 							} while (stock.isEmpty());
@@ -606,8 +607,7 @@ public class ProductosMain {
 						// es 3
 						case "3":
 							do {
-								descripcion = ValidarMetodosProducto
-										.getOnlyLetters("Ingresa el nuevo apellido materno del Producto (solo letras): ");
+								descripcion = ValidarMetodosProducto.getOnlyLettersSpace("Ingresa la nueva descripcion: ");
 								ValidarMetodosProducto.emptyField(descripcion);
 								// Si el campo está vacío, solicite al usuario que ingrese nuevamente
 							} while (descripcion.isEmpty());
@@ -618,7 +618,7 @@ public class ProductosMain {
 						// es 4
 						case "4":
 							do {
-								descuento = ValidarMetodosProducto.getDiscount("Ingresa el nuevo email del Producto: ");
+								descuento = ValidarMetodosProducto.getDiscount("Ingresa el nuevo descuento del Producto: ");
 								ValidarMetodosProducto.emptyField(descuento);
 								// Si el campo está vacío, solicite al usuario que ingrese nuevamente
 							} while (descuento.isEmpty());
