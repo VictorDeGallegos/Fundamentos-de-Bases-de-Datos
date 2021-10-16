@@ -1,4 +1,5 @@
 
+
 /**
  * Clase que representa un producto.
  * 
@@ -6,15 +7,18 @@
  * @version 13/10/2021
  */
 public class Producto {
+
+    private int noDeSerie;
     private String nombre;
-    private int precio;
+    private String precio;
     private String stock;
     private String descripcion;
     private String descuento;
 
     // Constructor del producto
-    public Producto(String nombre, int precio, String stock, String descripcion, String descuento) {
-        this.precio = precio;
+    public Producto(int noDeSerie, String nombre , String precio,String stock, String descripcion, String descuento) {
+        this.noDeSerie = noDeSerie;
+        this.precio=precio;
         this.stock = stock;
         this.descripcion = descripcion;
         this.nombre = nombre;
@@ -23,13 +27,22 @@ public class Producto {
 
     // Metodos get y set del producto
 
-    public int getPrecio() {
+    public int getNoDeSerie() {
+        return noDeSerie;
+    }
+
+    public void setNoDeSerie(int noDeSerie) {
+        this.noDeSerie = noDeSerie;
+    }
+
+    public String getPrecio(){
         return precio;
     }
 
-    public void setPrecio(int precio) {
-        this.precio = precio;
+    public void setPrecio(String precio){
+        this.precio=precio;
     }
+
 
     public String getStock() {
         return stock;
@@ -70,8 +83,8 @@ public class Producto {
      */
     @Override
     public String toString() {
-        String s = "Precio: " + this.precio + "\n" + "Disponibles: " + this.stock + "\n" + "Descripcion: "
-                + this.descripcion + "\n" + "Nombre archivo img: " + this.nombre + "\n" + "Descuento: " + this.descuento
+        String s = "Numero de Serie: " + this.noDeSerie + "\n" + "Nombre " + this.nombre + "\n" + "Precio"
+                + this.precio + "\n" + "Descripcion " + this.descripcion + "\n" + "Descuento: " + this.descuento
                 + "%";
         return s;
     }
