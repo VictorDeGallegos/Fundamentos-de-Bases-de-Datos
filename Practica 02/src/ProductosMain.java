@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
-// Class Clientes Main
+// Class Productos Main
 public class ProductosMain {
 	// Declarando variables Globales
 
@@ -58,7 +58,7 @@ public class ProductosMain {
 		// Declare y cree un objeto BufferedReader y pase el objeto FileReader
 		// fr.
 		BufferedReader br = new BufferedReader(fr);
-		// declarar una cadena para guardar cada línea del archivo (Clientes.csv)
+		// declarar una cadena para guardar cada línea del archivo (Productos.csv)
 		String line;
 
 		try {
@@ -68,10 +68,10 @@ public class ProductosMain {
 			while (line != null) {
 				// Matriz de cadenas que dividirán los datos en partes más pequeñas para leer
 				String[] data = line.split(";");
-				// Cree un objeto Clientes y establezca el valor de los atributos (Id, apellido
+				// Cree un objeto Productos y establezca el valor de los atributos (Id, apellido
 				// paterno,materno
 				// nombre, email, telefono)
-				Producto p = new Producto(data[0],Integer.parseInt(data[1]), data[2], data[3], data[4]);
+				Producto p = new Producto(data[0], Integer.parseInt(data[1]), data[2], data[3], data[4]);
 				// Agregar a ArrayList
 				list.add(p);
 				// Sigue leyendo líneas
@@ -124,7 +124,8 @@ public class ProductosMain {
 				case "a":
 					addNewProducto();
 					break;
-				// condición de cambio de caso para buscar la entrada de caso de Productos es 'b'
+				// condición de cambio de caso para buscar la entrada de caso de Productos es
+				// 'b'
 				case "b":
 					searchProducto();
 					break;
@@ -138,7 +139,8 @@ public class ProductosMain {
 				case "d":
 					modifyProducto();
 					break;
-				// caso de interruptor de condición para eliminar la entrada de caso de Productos
+				// caso de interruptor de condición para eliminar la entrada de caso de
+				// Productos
 				// es 'e'
 				case "e":
 					deleteProducto();
@@ -229,13 +231,13 @@ public class ProductosMain {
 		String descripcion = " ";
 		String descuento = " ";
 		String confirm = " ";
-		// bucle que le pedirá al usuario que ingrese datos de Clientes
+		// bucle que le pedirá al usuario que ingrese datos de Productos
 		do {
 			// Try para obtener la entrada del usuario
 			try {
 				// flag
 				boolean flag = false;
-				
+
 				// bucle que solicita la entrada del usuario, comprueba si la entrada son letras
 				// y si el
 				// el campo no está en blanco
@@ -253,11 +255,12 @@ public class ProductosMain {
 					// muestre el mensaje pidiendo al usuario que ingrese Su ID
 					System.out.println("Ingresa el precio del producto (solo numeros): ");
 					System.out.println();
-					// precio recibe la entrada del usuario y la bandera usa el método checkPrecio para
+					// precio recibe la entrada del usuario y la bandera usa el método checkPrecio
+					// para
 					// verificar si
 					// ya existe
 					precio = Integer.parseInt(br.readLine());
-					flag = ValidarMetodosProducto.checkPrecio(precio , list);
+					flag = ValidarMetodosProducto.checkPrecio(precio, list);
 					// condición si bandera == verdadero mostrar ID de mensaje ya existe
 					if (flag == true) {
 						System.out.println();
@@ -272,7 +275,7 @@ public class ProductosMain {
 				// el campo no está vacio
 				do {
 					stock = ValidarMetodosProducto
-							.getOnlyLetters("Ingresa si el articulo esa disponible o no (solo letras): ");
+							.getOnlyLetters("Ingresa (si) el articulo esta disponible o (no) (solo letras): ");
 					ValidarMetodosProducto.emptyField(stock);
 					// Mientras el campo está vacío, solicite a la usuario que ingrese nuevamente
 				} while (stock.isEmpty());
@@ -287,21 +290,23 @@ public class ProductosMain {
 					// Mientras el campo está vacío, solicite al usuario que ingrese nuevamente
 				} while (descripcion.isEmpty());
 
-
 				// bucle que solicita la entrada del usuario, comprueba si la entrada es un
 				// número válido y si
 				// el campo no esta vacio
 				do {
-					// System.out.println("Please enter Clientes telefono number (numbers only): ");
-					descuento = ValidarMetodosProducto.getDiscount("Ingresa el porcentaje del descuento  (solo numeros dos digitos): ");
+					// System.out.println("Please enter Productos telefono number (numbers only):
+					// ");
+					descuento = ValidarMetodosProducto
+							.getDiscount("Ingresa el porcentaje del descuento  (solo numeros dos digitos): ");
 					ValidarMetodosProducto.emptyField(descuento);
 					System.out.println();
 					// Mientras el campo está vacío, solicite al usuario que ingrese nuevamente
 				} while (descuento.isEmpty());
 				do {
 					try {
-						// Mostrar mensaje pidiendo al usuario que confirme la entrada para los Productos
-						System.out.println("Confirmas que es correcta la informacion de este cliente? Y/N");
+						// Mostrar mensaje pidiendo al usuario que confirme la entrada para los
+						// Productos
+						System.out.println("Confirmas que es correcta la informacion de este Producto? Y/N");
 						// confirmar recibir la entrada del usuario
 						confirm = br.readLine();
 						// captura la excepción y muestra el mensaje en caso de que haya un error
@@ -315,7 +320,7 @@ public class ProductosMain {
 						Producto p = new Producto(nombre, precio, stock, descripcion, descuento);
 						// Agregar a ArrayList (lista)
 						list.add(p); // mostrar mensaje de que Producto se eliminó con éxito y una línea vacía
-						System.out.println("****** Cliente Agregado exitosamente !!! ******");
+						System.out.println("****** Producto Agregado exitosamente !!! ******");
 						System.out.println();
 					}
 					// El bucle se ejecuta mientras la entrada del usuario no es Y o N
@@ -333,13 +338,13 @@ public class ProductosMain {
 		} while (true);
 		System.out.println();
 		pressEnter();
-	}// end of method addNewClientes
-		// Método para buscar Clientes
+	}// end of method addNewProductos
+		// Método para buscar Productos
 
 	public void searchProducto() {
 		/*
-		 * El programa debe buscar por  nombre , precio o descripcion
-		 * paterno buscar debe mostrar todos los Clientes que cumplen con la búsqueda
+		 * El programa debe buscar por nombre , precio o descripcion buscar debe mostrar
+		 * todos los Productos que cumplen con la búsqueda
 		 */
 		// declarando variables
 		String nombre = " ";
@@ -347,48 +352,48 @@ public class ProductosMain {
 		String descripcion = " ";
 		String input = " ";
 		// Intente obtener información del usuario para refinar la búsqueda por Id de
-		// cliente, nombre o
+		// Producto, nombre o
 		// apellido paterno
 		try {
 			System.out.println("Te gustaria buscar por: ");
 			System.out.println("****************************");
-			System.out.println("| 1 - Clientes (NOMBRE)                |");
-			System.out.println("| 2 - Clientes (PRECIO)            |");
-			System.out.println("| 3 - Clientes (DESCRIPCION)  |");
+			System.out.println("| 1 - Productos (NOMBRE)       |");
+			System.out.println("| 2 - Productos (PRECIO)       |");
+			System.out.println("| 3 - Productos (DESCRIPCION)  |");
 			System.out.println("****************************");
 			input = br.readLine();
 			// flag
 			boolean found = false;
 
-			// caso de interruptor de condición para agregar la entrada de caso de Clientes
+			// caso de interruptor de condición para agregar la entrada de caso de Productos
 			// es 'a'
 			switch (input) {
 				// pedirle al usuario que ingrese los detalles de un Producto por nombre
 				case "1":
-				do {
-					nombre = ValidarMetodosProducto.getOnlyLetters("Ingresa el nombre del cliente: ");
-					ValidarMetodosProducto.emptyField(nombre);
-					// Si el campo está vacío, solicite al usuario que ingrese nuevamente
-				} while (nombre.isEmpty());
-				found = false;
-				// bucle que ejecuta la lista
-				for (Producto s : list) {
-					// si encuentra los Clientes que coinciden con el nombre lo muestra en la
-					// pantalla y
-					// cambiar la bandera a verdadero
-					if (s.getNombre().contains(nombre)) {
-						System.out.println(s);
-						found = true;
+					do {
+						nombre = ValidarMetodosProducto.getOnlyLetters("Ingresa el nombre del Producto: ");
+						ValidarMetodosProducto.emptyField(nombre);
+						// Si el campo está vacío, solicite al usuario que ingrese nuevamente
+					} while (nombre.isEmpty());
+					found = false;
+					// bucle que ejecuta la lista
+					for (Producto s : list) {
+						// si encuentra los Productos que coinciden con el nombre lo muestra en la
+						// pantalla y
+						// cambiar la bandera a verdadero
+						if (s.getNombre().contains(nombre)) {
+							System.out.println(s);
+							found = true;
+						}
 					}
-				}
-				// si no se encuentra la el nombre muestra el mensaje "nombre no
-				// encontrado" y una línea vacía
-				if (found == false) {
-					System.out.println("***** Nombre no encontrado :( *****");
-					System.out.println();
-				}
+					// si no se encuentra la el nombre muestra el mensaje "nombre no
+					// encontrado" y una línea vacía
+					if (found == false) {
+						System.out.println("***** Nombre no encontrado :( *****");
+						System.out.println();
+					}
 					break;
-				// Pídale al usuario que ingrese los datos de Cliente por nombre
+				// Pídale al usuario que ingrese los datos de Producto por nombre
 				case "2":
 					// pedir información al usuario
 					System.out.println("Por favor ingresa el precio del producto: ");
@@ -396,9 +401,10 @@ public class ProductosMain {
 					try {
 						precio = Integer.parseInt(br.readLine());
 						found = false;
-						// pedirle al usuario que ingrese los detalles de Clientes por ID
+						// pedirle al usuario que ingrese los detalles de Productos por ID
 						for (Producto s : list) {
-							// si encuentra los Articulos  que coinciden con el precio lo muestra en la pantalla y
+							// si encuentra los Articulos que coinciden con el precio lo muestra en la
+							// pantalla y
 							// cambia
 							// flag a true
 							if (String.valueOf(s.getPrecio()).contains(String.valueOf(precio))) {
@@ -416,21 +422,21 @@ public class ProductosMain {
 					} catch (IOException | NumberFormatException nf) {
 						System.out.println("***** No valido, Intenta de nuevo *****");
 						System.out.println();
-					}	
+					}
 
-					
 					break;
 				// pedirle al usuario que ingrese una pequeña descripcion del producto
 				case "3":
 					do {
-						descripcion = ValidarMetodosProducto.getOnlyLetters("Ingresa el Apellido paterno del cliente: ");
+						descripcion = ValidarMetodosProducto.getOnlyLetters("Ingresa el Apellido paterno del Producto: ");
 						ValidarMetodosProducto.emptyField(descripcion);
 						// Si el campo está vacío, solicite al usuario que ingrese nuevamente
 					} while (descripcion.isEmpty());
 					found = false;
 					// bucle que ejecuta la lista
 					for (Producto s : list) {
-						// si encuentra los Clientes que coinciden con el apellido paterno lo muestra en
+						// si encuentra los Productos que coinciden con el apellido paterno lo muestra
+						// en
 						// la pantalla y cambia la bandera a true
 						if (s.getDescripcion().contains(descripcion)) {
 							System.out.println(s);
@@ -459,7 +465,7 @@ public class ProductosMain {
 		} catch (IOException e) {
 			System.out.println("*** Algo salio mal ERROR 404 o algo asi xd..! ***");
 		}
-	}// fin del metodo searchClientes
+	}// fin del metodo searchProductos
 
 	// Método que mostrará un Producto
 	public void displayProducto() {
@@ -468,16 +474,16 @@ public class ProductosMain {
 		boolean f = false;
 		do {
 			f = false;
-			// mostrar detalles de Clientes por número de Clientes
+			// mostrar detalles de Productos por precio de Productos
 			System.out.println("Ingresa el precio del producto: ");
 			try {
-				// la entrada recibe la ID del usuario
+				// la entrada recibe el precio del usuario
 				input = Integer.parseInt(br.readLine());
 				// flag
 				boolean found = false;
 				// bucle que ejecuta la lista
 				for (Producto s : list) {
-					// si la ID está en la lista, la muestra en la pantalla y cambia la
+					// si el precio está en la lista, la muestra en la pantalla y cambia la
 					// bandera a verdadera
 					if (String.valueOf(s.getPrecio()).contains(String.valueOf(input))) {
 						System.out.println(s);
@@ -499,13 +505,13 @@ public class ProductosMain {
 				f = true;
 			}
 		} while (f);
-	}// FIn del metodo displayClientes
+	}// FIn del metodo displayProductos
 
-	// Metodo modify Clientes
+	// Metodo modify Productos
 	public void modifyProducto() {
 		/*
 		 * El programa debe cambiar los detalles (apellidoPaterno, apellidoMaterno
-		 * nombre, email, telefono) excepto Los cambios de número de cliente deben
+		 * nombre, email, telefono) excepto Los cambios de número de Producto deben
 		 * guardarse en la lista y el archivo
 		 */
 		// declarar variables y darles valores
@@ -517,19 +523,19 @@ public class ProductosMain {
 		String descuento = " ";
 		String confirm = " ";
 
-		// mostrar detalles de Clientes por número de Clientes
-		System.out.println("Ingresa el precio del cliente: ");
+		// mostrar detalles de Productos por número de Productos
+		System.out.println("Ingresa el precio del Producto: ");
 		// try para obtener el ID del usuario
 		try {
 			// La entrada recibe el id del usuario
 			input = Integer.parseInt(br.readLine());
 			// flag
 			boolean found = false;
-			// crea un objeto Clientes cli como nulo
+			// crea un objeto Productos cli como nulo
 			Producto prod = null;
 			// bucle que ejecuta la lista
 			for (Producto s : list) {
-				// si lID está en la lista, muestra los detalles de Clientes y
+				// si lID está en la lista, muestra los detalles de Productos y
 				// cambia la bandera a verdadera
 				if (String.valueOf(s.getPrecio()).contains(String.valueOf(input))) {
 					// System.out.println(s);
@@ -544,7 +550,7 @@ public class ProductosMain {
 				System.out.println();
 				// si ID está en la lista
 			} else {
-				// bucle que le pedirá al usuario que actualice la información de Clientes por:
+				// bucle que le pedirá al usuario que actualice la información de Productos por:
 				// nombre, apellido
 				// paterno,
 				// email or numero de telefono
@@ -558,22 +564,22 @@ public class ProductosMain {
 				descripcion = prod.getDescripcion();
 				descuento = prod.getDescuento();
 				do {
-					System.out.println("Nombre del producto " + nombre + "\n" + "Precio" + prod.getPrecio() + "\n" + "Disponibilidad "
-							+ stock + "\n" + "Descripcion: " + descripcion + "\n" + "Descuento disponible " + descuento + "\n"
-							+ "\n");
+					System.out.println(
+							"Nombre del producto " + nombre + "\n" + "Precio" + prod.getPrecio() + "\n" + "Disponibilidad " + stock
+									+ "\n" + "Descripcion: " + descripcion + "\n" + "Descuento disponible " + descuento + "\n" + "\n");
 					System.out.println("*****************************************");
-					System.out.println("Selecciona la opcion que desea editar del Cliente:    ");
-					System.out.println("| 1 - Nombre del Producto                        |");
-					System.out.println("| 2 - Disponibilidad del producto              |");
-					System.out.println("| 3 - Descripcion del producto              |");
-					System.out.println("| 4 - Descuento disponible                        |");
+					System.out.println("Selecciona la opcion que desea editar del Producto:    ");
+					System.out.println("| 1 - Nombre del Producto                       |");
+					System.out.println("| 2 - Disponibilidad del producto               |");
+					System.out.println("| 3 - Descripcion del producto                  |");
+					System.out.println("| 4 - Descuento disponible                      |");
 					System.out.println("| 5 - Guardar cambios y volver a Menu principal |");
 					System.out.println("| 0 - Regresar al menu principal                |");
 					System.out.println("*****************************************");
 					data = br.readLine();
 					found = false;
 
-					// caso de switch de condición para agregar la entrada de caso de Clientes es
+					// caso de switch de condición para agregar la entrada de caso de Productos es
 					// 'a'
 					switch (data) {
 						// Pídale al usuario que ingrese el Nombre del Producto si la opción es 1
@@ -590,7 +596,7 @@ public class ProductosMain {
 						case "2":
 							do {
 								stock = ValidarMetodosProducto
-										.getOnlyLetters("Ingresa la nueva disponibilidad  (solo letras, Ej. Disponible, No disponible): ");
+										.getOnlyLetters("Ingresa la nueva disponibilidad  (solo letras, Ej. Disponible, Nodisponible): ");
 								ValidarMetodosProducto.emptyField(stock);
 								// Si el campo está vacío, solicite al usuario que ingrese nuevamente
 							} while (stock.isEmpty());
@@ -601,23 +607,24 @@ public class ProductosMain {
 						case "3":
 							do {
 								descripcion = ValidarMetodosProducto
-										.getOnlyLetters("Ingresa el nuevo apellido materno del cliente (solo letras): ");
+										.getOnlyLetters("Ingresa el nuevo apellido materno del Producto (solo letras): ");
 								ValidarMetodosProducto.emptyField(descripcion);
 								// Si el campo está vacío, solicite al usuario que ingrese nuevamente
 							} while (descripcion.isEmpty());
 							System.out.println();
 							break;
-						// Pedirle al usuario que ingrese el correo electrónico del Cliente si la opción
+						// Pedirle al usuario que ingrese el correo electrónico del Producto si la
+						// opción
 						// es 4
 						case "4":
 							do {
-								descuento = ValidarMetodosProducto.getDiscount("Ingresa el nuevo email del cliente: ");
+								descuento = ValidarMetodosProducto.getDiscount("Ingresa el nuevo email del Producto: ");
 								ValidarMetodosProducto.emptyField(descuento);
 								// Si el campo está vacío, solicite al usuario que ingrese nuevamente
 							} while (descuento.isEmpty());
 							System.out.println();
 							break;
-						// Pedirle al usuario que ingrese el telefono del Cliente si 
+						// Pedirle al usuario que ingrese el telefono del Producto si
 						case "5":
 							do {
 								System.out.println("Confirmas los cambios realizados? Y/N");
@@ -628,7 +635,7 @@ public class ProductosMain {
 								} catch (IOException e) {
 									System.out.println("***** Algo salio mal :( ..! ***** ");
 								}
-								// condición en caso de que la entrada del usuario sea Y, elimine los Clientes
+								// condición en caso de que la entrada del usuario sea Y, elimine los Productos
 								// de la lista
 								if (confirm.equalsIgnoreCase("Y")) {
 									/* si guarda (Y) */
@@ -636,7 +643,8 @@ public class ProductosMain {
 									prod.setStock(stock);
 									prod.setDescripcion(descripcion);
 									prod.setDescuento(descuento);
-									// muestra el mensaje de que Clientes se eliminó correctamente y una línea vacía
+									// muestra el mensaje de que Productos se eliminó correctamente y una línea
+									// vacía
 									System.out.println("Producto actualizado correctamente !!!");
 									System.out.println();
 								}
@@ -665,21 +673,21 @@ public class ProductosMain {
 			System.out.println("***** Entrada invalida..! Vuelve a intentarlo *****");
 			System.out.println();
 		}
-	}// fin del metodo modifyClientes
+	}// fin del metodo modifyProductos
 
-	// Meotodo delete Clientes
+	// Meotodo delete Productos
 	public void deleteProducto() {
 		/*
-		 * El programa debe eliminar Clientes por número de Clientes eliminar de la
+		 * El programa debe eliminar Productos por número de Productos eliminar de la
 		 * lista y el archivo
 		 */
 		// declarar variables y darles valores
 		int input = 0;
 		String confirm = " ";
 
-		// mostrar detalles de Clientes por número de Clientes
+		// mostrar detalles de Productos por número de Productos
 		System.out.println("Ingresa el precio del Producto ");
-		// tratar de obtener la ID de Clientes
+		// tratar de obtener el precio de Productos
 		try {
 			// La entrada recibe el id del usuario
 			input = Integer.parseInt(br.readLine());
@@ -690,8 +698,8 @@ public class ProductosMain {
 		// flag
 		boolean found = false;
 		Producto cli = null;
-		// bucle que ejecutará la lista. Si la ID coincide, muestra los
-		// Clientes y cambia
+		// bucle que ejecutará la lista. Si el precio coincide, muestra los
+		// Productos y cambia
 		// flag a true
 		for (Producto s : list) {
 			if (s.getPrecio() == input) {
@@ -700,13 +708,13 @@ public class ProductosMain {
 				found = true;
 			}
 		}
-		// si no se encuentra la ID, muestre el mensaje "No se encontró la
+		// si no se encuentra el precio, muestre el mensaje "No se encontró la
 		// ID" y una línea vacía
 		if (found == false) {
 			System.out.println("***** ID no encontrado *****");
 			System.out.println();
-			// si Clientes encontró, mostrar un mensaje pidiendo al usuario que confirme y
-			// elimine el Cliente
+			// si Productos encontró, mostrar un mensaje pidiendo al usuario que confirme y
+			// elimine el Producto
 		} else {
 			do {
 				System.out.println("Deseas eliminar este Producto? Y/N");
@@ -730,7 +738,7 @@ public class ProductosMain {
 		}
 		// método de llamada pressEnter
 		pressEnter();
-	}// fin del metodo deleteClientes
+	}// fin del metodo deleteProductos
 
 	// Metodo pressEnter
 	public void pressEnter() {
@@ -743,4 +751,4 @@ public class ProductosMain {
 		} catch (IOException ioe) {
 		}
 	}// fin del método presione Entrar
-}// Fin de la clase ClientesMain
+}// Fin de la clase ProductosMain

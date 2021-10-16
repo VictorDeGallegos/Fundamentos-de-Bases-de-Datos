@@ -1,5 +1,4 @@
 
-
 /**
  * Clase que representa un producto.
  * 
@@ -13,67 +12,68 @@ public class Producto {
     private String descripcion;
     private String descuento;
 
-    //Constructor del producto
-    public Producto(String nombre, int precio, String stock, String descripcion, String descuento){
-        this.precio=precio;
-        this.stock=stock;
-        this.descripcion=descripcion;
-        this.nombre=nombre;
-        this.descuento=descuento;
+    // Constructor del producto
+    public Producto(String nombre, int precio, String stock, String descripcion, String descuento) {
+        this.precio = precio;
+        this.stock = stock;
+        this.descripcion = descripcion;
+        this.nombre = nombre;
+        this.descuento = descuento;
     }
 
-    //Metodos get y set del producto
+    // Metodos get y set del producto
 
-    public int getPrecio(){
+    public int getPrecio() {
         return precio;
     }
 
-    public void setPrecio(int precio){
-        this.precio=precio;
+    public void setPrecio(int precio) {
+        this.precio = precio;
     }
 
-    public String getStock(){
+    public String getStock() {
         return stock;
     }
 
-    public void setStock(String stock){
-        this.stock=stock;
+    public void setStock(String stock) {
+        this.stock = stock;
     }
 
-    public String getDescripcion(){
+    public String getDescripcion() {
         return descripcion;
     }
 
-    public void setDescripcion(String descripcion){
-        this.descripcion=descripcion;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
-    public String getNombre(){
+    public String getNombre() {
         return nombre;
     }
 
-    public void setNombre(String nombre){
-        this.nombre=nombre;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public String getDescuento(){
+    public String getDescuento() {
         return descuento;
     }
 
-    public void setDescuento(String descuento){
-        this.descuento=descuento;
+    public void setDescuento(String descuento) {
+        this.descuento = descuento;
     }
 
-     /**
-   * Metodo ToString de Operador
-   * 
-   * @return
-   */
-  @Override
-    public String toString(){
-        return this.precio + "," + this.stock + "," + this.descripcion + "," + this.nombre + "," + this.descuento;
+    /**
+     * Metodo ToString de Operador
+     * 
+     * @return
+     */
+    @Override
+    public String toString() {
+        String s = "Precio " + this.precio + "\n" + "Disponibles: " + this.stock + "\n" + "Descripcion: "
+                + this.descripcion + "\n" + "Nombre archivo img: " + this.nombre + "\n" + "Descuento: " + this.descuento
+                + "%";
+        return s;
     }
-    
+
 }
-
-

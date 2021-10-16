@@ -43,8 +43,6 @@ public class ValidarMetodosProducto {
 		return letters;
 	}
 
-	
-
 	// Método que comprueba si el campo está vacío, muestra un mensaje de error en
 	// caso de que sea falso
 	public static boolean emptyField(String fieldValue) {
@@ -62,7 +60,7 @@ public class ValidarMetodosProducto {
 		return check;
 	}
 
-	// Método que comprueba si un articulo esta en  está en la lista. Si devuelve
+	// Método que comprueba si un articulo esta en está en la lista. Si devuelve
 	// "verdadero"
 	public static boolean checkNombre(String nombre, ArrayList<Clientes> list) {
 		boolean check = false;
@@ -102,6 +100,49 @@ public class ValidarMetodosProducto {
 			// en el formato incorrecto
 			if (flag == false)
 				System.out.println("Numero invalido! Ingresa una cantidad valida (2  digitos - solo numeros).");
+		}
+		// condición que ejecutará el ciclo mientras la bandera sea falsa
+		while (flag == false);
+		return letters;
+	}
+
+	public static boolean checkPrecio(int precio, ArrayList<Producto> list) {
+		boolean check = false;
+
+		// bucle que ejecuta la lista en busca del precio
+		for (int x = 0; x < list.size(); x++) {
+			if (list.get(x).getPrecio() == precio) {
+				check = true;
+			}
+		}
+		return check;
+	}
+
+	public static String getDiscount(String lineMessage) {
+		boolean flag = true;
+		String letters = "";
+		// bucle que ejecutará el programa para verificar el descuento y tratar
+		// las excepciones si
+		// hay algun error
+		do {
+			flag = true;
+			System.out.print(lineMessage);
+			try {
+				letters = br.readLine();
+				if (letters.length() != 2) {
+					flag = false;
+				}
+				for (int l = 0; l < letters.length(); l++) {
+					Integer.parseInt(String.valueOf(letters.charAt(l)));
+				}
+			} catch (IOException e) {
+			} catch (NumberFormatException nfe) {
+				flag = false;
+			}
+			// condición que muestra un mensaje en caso de que la entrada del usuario esté
+			// en el formato incorrecto
+			if (flag == false)
+				System.out.println("Numero invalido! Ingresa un descuento valido (2 digitos - solo numeros).");
 		}
 		// condición que ejecutará el ciclo mientras la bandera sea falsa
 		while (flag == false);
