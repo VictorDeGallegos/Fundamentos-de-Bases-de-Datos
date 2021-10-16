@@ -368,6 +368,7 @@ public class ClientesMain {
 		int id = 0;
 		String nombre = " ";
 		String apellidoPaterno = " ";
+		String curp = " ";
 		String input = " ";
 		// Intente obtener información del usuario para refinar la búsqueda por Id de
 		// cliente, nombre o
@@ -378,6 +379,7 @@ public class ClientesMain {
 			System.out.println("| 1 - Clientes (ID)                |");
 			System.out.println("| 2 - Clientes (NOMBRE)            |");
 			System.out.println("| 3 - Clientes (APELLIDO PATERNO)  |");
+			System.out.println("| 4 - Clientes (CURP)              |");
 			System.out.println("****************************");
 			input = br.readLine();
 			// flag
@@ -462,6 +464,30 @@ public class ClientesMain {
 					// encontrado" y una línea vacía
 					if (found == false) {
 						System.out.println("***** Apellido paterno no encontrados :( *****");
+						System.out.println();
+					}
+					break;
+				// pedirle al usuario que ingrese los detalles de Clientes por curp
+				case "4":
+					do {
+						curp = ValidarMetodosClientes.getCurp("Ingresa el CURP del cliente: ");
+						ValidarMetodosClientes.emptyField(curp);
+						// Si el campo está vacío, solicite al usuario que ingrese nuevamente
+					} while (curp.isEmpty());
+					found = false;
+					// bucle que ejecuta la lista
+					for (Clientes s : list) {
+						// si encuentra los Clientes que coinciden con el apellido paterno lo muestra en
+						// la pantalla y cambia la bandera a true
+						if (s.getCurp().contains(curp)) {
+							System.out.println(s);
+							found = true;
+						}
+					}
+					// si no se encuentra la ID muestra el mensaje "apellido paterno no
+					// encontrado" y una línea vacía
+					if (found == false) {
+						System.out.println("***** CURP no encontrado :( *****");
 						System.out.println();
 					}
 					break;
