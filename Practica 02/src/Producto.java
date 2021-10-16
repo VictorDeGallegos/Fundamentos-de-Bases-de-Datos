@@ -1,4 +1,4 @@
-package src;
+
 
 /**
  * Clase que representa un producto.
@@ -7,14 +7,14 @@ package src;
  * @version 13/10/2021
  */
 public class Producto {
-    private int precio;
-    private int stock;
-    private String descripcion;
     private String nombre;
-    private int descuento;
+    private int precio;
+    private String stock;
+    private String descripcion;
+    private String descuento;
 
     //Constructor del producto
-    public Producto(int precio, int stock, String descripcion, String nombre, int descuento){
+    public Producto(String nombre, int precio, String stock, String descripcion, String descuento){
         this.precio=precio;
         this.stock=stock;
         this.descripcion=descripcion;
@@ -32,11 +32,11 @@ public class Producto {
         this.precio=precio;
     }
 
-    public int getStock(){
+    public String getStock(){
         return stock;
     }
 
-    public void setStock(int stock){
+    public void setStock(String stock){
         this.stock=stock;
     }
 
@@ -56,11 +56,11 @@ public class Producto {
         this.nombre=nombre;
     }
 
-    public int getDescuento(){
+    public String getDescuento(){
         return descuento;
     }
 
-    public void setDescuento(int descuento){
+    public void setDescuento(String descuento){
         this.descuento=descuento;
     }
 
