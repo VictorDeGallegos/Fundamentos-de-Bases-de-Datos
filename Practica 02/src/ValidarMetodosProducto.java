@@ -138,12 +138,12 @@ public class ValidarMetodosProducto {
 		return letters;
 	}
 
-	public static boolean checkPrecio(int precio, ArrayList<Producto> list) {
+	public static boolean checknoDeSerie(int noDeSerie, ArrayList<Producto> list) {
 		boolean check = false;
 
 		// bucle que ejecuta la lista en busca del precio
 		for (int x = 0; x < list.size(); x++) {
-			if (list.get(x).getPrecio() == precio) {
+			if (list.get(x).getNoDeSerie() == noDeSerie) {
 				check = true;
 			}
 		}
@@ -181,4 +181,36 @@ public class ValidarMetodosProducto {
 		return letters;
 	}
 
+	// Método que verifica el número de teléfono
+	public static String getPrice(String lineMessage) {
+		boolean flag = true;
+		String letters = "";
+		// bucle que ejecutará el programa para verificar el número de teléfono y tratar
+		// las excepciones si
+		// hay algun error
+		do {
+			flag = true;
+			System.out.print(lineMessage);
+			try {
+				letters = br.readLine();
+				if (letters.length() != 10) {
+					flag = false;
+				}
+				for (int l = 0; l < letters.length(); l++) {
+					Integer.parseInt(String.valueOf(letters.charAt(l)));
+				}
+			} catch (IOException e) {
+			} catch (NumberFormatException nfe) {
+				flag = false;
+			}
+			// condición que muestra un mensaje en caso de que la entrada del usuario esté
+			// en el formato incorrecto
+			if (flag == false)
+				System.out.println("Numero invalido! Ingresa un numero para el precio (10 digitos - solo numeros).");
+		}
+		// condición que ejecutará el ciclo mientras la bandera sea falsa
+		while (flag == false);
+		return letters;
+
+	}
 }
