@@ -13,19 +13,21 @@ public class Clientes {
 	private String apellidoPaterno;
 	private String apellidoMaterno;
 	private String curp;
+	private String genero;
 	private String direccion;
 	private String nombre;
 	private String email;
 	private String puntosdePromociones;
 
-	public Clientes(int id, String apellidoPaterno, String apellidoMaterno, String nombre, String curp, String direccion,
-			String email, String puntosdePromociones) {
+	public Clientes(int id, String apellidoPaterno, String apellidoMaterno, String nombre, String curp, String genero,
+			String direccion, String email, String puntosdePromociones) {
 		this.id = id;
 		this.apellidoPaterno = apellidoPaterno;
 		this.apellidoMaterno = apellidoMaterno;
 		this.nombre = nombre;
 		this.curp = curp;
-		this.curp = direccion;
+		this.genero = genero;
+		this.direccion = direccion;
 		this.email = email;
 		this.puntosdePromociones = puntosdePromociones;
 	}
@@ -49,6 +51,10 @@ public class Clientes {
 
 	public void setCurp(String curp) {
 		this.curp = curp;
+	}
+
+	public void setGenero(String genero) {
+		this.genero = genero;
 	}
 
 	public void setDireccion(String direccion) {
@@ -83,8 +89,12 @@ public class Clientes {
 		return this.curp;
 	}
 
+	public String getGenero() {
+		return this.genero;
+	}
+
 	public String getDireccion() {
-		return this.curp;
+		return this.direccion;
 	}
 
 	public String getEmail() {
@@ -100,8 +110,8 @@ public class Clientes {
 
 		String s = "ID Cliente: " + this.id + "\n" + "Nombre: " + this.nombre + "\n" + "Apellido Paterno: "
 				+ this.apellidoPaterno + "\n" + "Apellido Materno: " + this.apellidoMaterno + "\n" + "CURP:" + this.curp + "\n"
-				+ "Direccion" + this.direccion + "\n" + "E-mail: " + this.email + "\n" + "Puntos de promociones: "
-				+ this.puntosdePromociones + "\n";
+				+ "Genero: " + this.genero + "\n" + "Direccion: " + this.direccion + "\n" + "E-mail: " + this.email + "\n"
+				+ "Puntos de promociones: " + this.puntosdePromociones + " puntos" + "\n";
 		return s;
 	}
 

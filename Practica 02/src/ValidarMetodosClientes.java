@@ -100,7 +100,8 @@ public class ValidarMetodosClientes {
 						&& ((int) letters.charAt(l) != 32) /* SPACE */
 						&& ((int) letters.charAt(l) != 35) /* # */
 						&& ((int) letters.charAt(l) != 46) /* . */
-						&& ((int) letters.charAt(l) != 44)) /* , */
+						&& ((int) letters.charAt(l) != 44) /* , */
+						&& ((int) letters.charAt(l) != 47)) /* / */
 
 					check = false;
 			}
@@ -148,6 +149,34 @@ public class ValidarMetodosClientes {
 					System.out.println("Formato no válido, ingrese correo electrónico valido");
 				}
 			}
+			// El bucle se ejecuta mientras la verificación == falsa
+		} while (check == false);
+		return letters;
+	}
+
+	// Método que verifica si el genero es válido, muestra un mensaje de
+	// error en caso de el formato sea incorrecto
+	public static String getGenero(String lineMessage) {
+		boolean check = true;
+		String letters = "";
+		// bucle que comprobará el formato del correo electrónico
+		do {
+			check = true;
+			System.out.print(lineMessage);
+			try {
+				letters = br.readLine();
+			} catch (IOException e) {
+				System.out.println("Error al recibir el genero");
+			}
+			// ASCII
+			for (int l = 0; l < letters.length(); l++) {
+				if (((int) letters.charAt(l) != 77) && /* M */
+						((int) letters.charAt(l) != 70)) /* F */
+
+					check = false;
+			}
+			if (check == false)
+				System.out.println("¡Entrada inválida! ¡Intentar otra vez! ingrese genero (M o F)");
 			// El bucle se ejecuta mientras la verificación == falsa
 		} while (check == false);
 		return letters;
@@ -213,11 +242,12 @@ public class ValidarMetodosClientes {
 		return check;
 	}
 
-	// Método que verifica el número de teléfono
+	// Método que verifica los puntos de promociones
 	public static String getPromo(String lineMessage) {
 		boolean flag = true;
 		String letters = "";
-		// bucle que ejecutará el programa para verificar el número de teléfono y tratar
+		// bucle que ejecutará el programa para verificar los puntos de promociones y
+		// tratar
 		// las excepciones si
 		// hay algun error
 		do {
@@ -225,7 +255,7 @@ public class ValidarMetodosClientes {
 			System.out.print(lineMessage);
 			try {
 				letters = br.readLine();
-				if (letters.length() != 4) {
+				if (letters.length() <= 0) {
 					flag = false;
 				}
 				for (int l = 0; l < letters.length(); l++) {
