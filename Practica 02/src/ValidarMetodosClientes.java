@@ -292,12 +292,11 @@ public class ValidarMetodosClientes {
 			// ASCII
 			for (int l = 0; l < letters.length(); l++) {
 				if ((((int) letters.charAt(l) < 65) || ((int) letters.charAt(l) > 90)) && /* A - Z */
-						(((int) letters.charAt(l) < 97) || ((int) letters.charAt(l) > 122)) && /* a - z */
 						(((int) letters.charAt(l) < 48) || ((int) letters.charAt(l) > 57))) /* 0 - 9 */
 					check = false;
 			}
 			if (check == false)
-				System.out.println("¡Entrada inválida! ¡Intentar otra vez!");
+				System.out.println("¡Utiliza Mayusculas para ingresar tu CURP! ¡Intentar otra vez!");
 
 			// El bucle se ejecuta mientras la verificación == falsa
 		} while (check == false);

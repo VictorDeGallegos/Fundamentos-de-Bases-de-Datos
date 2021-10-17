@@ -73,7 +73,7 @@ public class ClientesMain {
 				// nombre, curp, direccion, genero, fecha de nacimiento, edad, email, password,
 				// metodos de pago, puntosdePromociones)
 				Clientes s = new Clientes(Integer.parseInt(data[0]), data[1], data[2], data[3], data[4], data[5], data[6],
-						data[7], data[8], data[9], data[10], data[11]);
+						data[7], data[8], data[9], data[10], data[11], data[12]);
 				// Agregar a ArrayList
 				list.add(s);
 				// Sigue leyendo líneas
@@ -201,6 +201,7 @@ public class ClientesMain {
 				bw.write(list.get(x).getDireccion() + ";");
 				bw.write(list.get(x).getEmail() + ";");
 				bw.write(list.get(x).getPassword() + ";");
+				bw.write(list.get(x).getMetodoDePago() + ";");
 				bw.write(list.get(x).getpuntosdePromociones() + ";");
 
 				bw.write(System.getProperty("line.separator"));
@@ -243,6 +244,7 @@ public class ClientesMain {
 		String direccion = " ";
 		String email = " ";
 		String password = " ";
+		String metododePago = " ";
 		String puntosdePromociones = " ";
 		String confirm = " ";
 		// bucle que le pedirá al usuario que ingrese datos de Clientes
@@ -375,6 +377,18 @@ public class ClientesMain {
 				} while (password.isEmpty());
 
 				// bucle que solicita la entrada del usuario, comprueba si la entrada es un
+				// metodo de pago
+				// el campo no esta en vacio
+				do {
+					metododePago = ValidarMetodosClientes
+							.getOnlyLetters("Ingresa el metodo de pago del cliente: (Efectivo o Tarjeta, Paypal, Transferencia): ");
+					// ValidationMethods.emptyField(paswword);
+					if (ValidarMetodosClientes.emptyField(metododePago))
+						metododePago = "";
+					// Mientras el campo está vacío, solicite al usuario que ingrese nuevamente
+				} while (metododePago.isEmpty());
+
+				// bucle que solicita la entrada del usuario, comprueba si la entrada es un
 				// número válido y si
 				// el campo no esta vacio
 				do {
@@ -401,7 +415,7 @@ public class ClientesMain {
 					if (confirm.equalsIgnoreCase("Y")) {
 						// Crea un objeto Clientes y establece el valor de los atributos
 						Clientes s = new Clientes(id, apellidoPaterno, apellidoMaterno, nombre, curp, genero, fechadeNacimiento,
-								edad, direccion, email, password, puntosdePromociones);
+								edad, direccion, email, password, metododePago, puntosdePromociones);
 						// Agregar a ArrayList (lista)
 						list.add(s); // mostrar mensaje de que Clientes se eliminó con éxito y una línea vacía
 						System.out.println("****** Cliente Agregado exitosamente !!! ******");
@@ -635,6 +649,7 @@ public class ClientesMain {
 		String direccion = " ";
 		String email = " ";
 		String password = " ";
+		String metododePago = " ";
 		String puntosdePromociones = " ";
 		String confirm = " ";
 
@@ -685,6 +700,7 @@ public class ClientesMain {
 				direccion = cli.getDireccion();
 				email = cli.getEmail();
 				password = cli.getPassword();
+				metododePago = cli.getMetodoDePago();
 				puntosdePromociones = cli.getpuntosdePromociones();
 				do {
 					System.out.println("Vista previa" + "\n");
@@ -692,7 +708,8 @@ public class ClientesMain {
 							+ apellidoPaterno + "\n" + "Apellido Materno: " + apellidoMaterno + "\n" + "Curp: " + curp + "\n"
 							+ "Genero: " + genero + "\n" + "Fecha de nacimiento: " + fechadeNacimiento + "\n" + "Edad :" + edad
 							+ " años" + "\n" + "Direccion: " + direccion + "\n" + "E-mail: " + email + "\n" + "Password: " + password
-							+ "\n" + "Puntos de promociones: " + puntosdePromociones + " puntos" + "\n");
+							+ "\n" + "Metodo de pago: " + metododePago + "\n" + "Puntos de promociones: " + puntosdePromociones
+							+ " puntos" + "\n");
 					System.out.println("*****************************************");
 					System.out.println("Selecciona la opcion que desea editar del Cliente:    ");
 					System.out.println("| 1 - Nombre del Cliente                         |");
@@ -703,10 +720,11 @@ public class ClientesMain {
 					System.out.println("| 6 - Fecha de nacimiento                        |");
 					System.out.println("| 7 - Edad                                       |");
 					System.out.println("| 8 - Direccion del Cliente                      |");
-					System.out.println("| 9 - Email del cliente                          |");
-					System.out.println("| 10 - Password del cliente                      |");
-					System.out.println("| 11 - Puntos de promociones del cliente         |");
-					System.out.println("| 12 - GUARDAR CAMBIOS y volver a Menu principal |");
+					System.out.println("| 9 - Email del Cliente                          |");
+					System.out.println("| 10 - Password del Cliente                      |");
+					System.out.println("| 11 - Metodo de pago del Cliente                |");
+					System.out.println("| 12 - Puntos de promociones del Cliente         |");
+					System.out.println("| 13 - GUARDAR CAMBIOS y volver a Menu principal |");
 					System.out.println("| 0 - Regresar al menu principal                 |");
 					System.out.println("*****************************************");
 					data = br.readLine();
@@ -753,6 +771,7 @@ public class ClientesMain {
 							do {
 								curp = ValidarMetodosClientes.getCurp("Ingresa el nuevo CURP del cliente (solo letras): ");
 								ValidarMetodosClientes.emptyField(curp);
+
 								// Si el campo está vacío, solicite al usuario que ingrese nuevamente
 							} while (curp.isEmpty());
 							System.out.println();
@@ -821,9 +840,20 @@ public class ClientesMain {
 							} while (password.isEmpty());
 							System.out.println();
 							break;
+						// Pedirle al usuario que ingrese el Metodo de pago del Cliente si la opción
+						// es 11
+						case "11":
+							do {
+								metododePago = ValidarMetodosClientes.getOnlyLetters(
+										"Ingresa el nuevo metodo de pago del cliente (Efectivo o Tarjeta, Paypal, Transferencia): ");
+								ValidarMetodosClientes.emptyField(metododePago);
+								// Si el campo está vacío, solicite al usuario que ingrese nuevamente
+							} while (metododePago.isEmpty());
+							System.out.println();
+							break;
 						// Pedirle al usuario que ingrese el puntosdePromociones del Cliente si la
 						// opcion es 10
-						case "11":
+						case "12":
 							do {
 								puntosdePromociones = ValidarMetodosClientes
 										.getPromo("Ingresa los nuevos puntos de promocion del cliente: ");
@@ -832,7 +862,7 @@ public class ClientesMain {
 							} while (puntosdePromociones.isEmpty());
 							System.out.println();
 							break;
-						case "12":
+						case "13":
 							do {
 								System.out.println("Confirmas los cambios realizados? Y/N");
 								try {
@@ -856,6 +886,7 @@ public class ClientesMain {
 									cli.setDireccion(direccion);
 									cli.setEmail(email);
 									cli.setPassword(password);
+									cli.setMetodoDePago(metododePago);
 									cli.setpuntosdePromociones(puntosdePromociones);
 									// muestra el mensaje de que Clientes se eliminó correctamente y una línea vacía
 									System.out.println("Clientes.csv actualizado correctamente !!!");
@@ -879,7 +910,7 @@ public class ClientesMain {
 							break;
 					}
 					// run el bucle hasta que el caso sea 0
-				} while (!data.equals("0") && !data.equals("12"));
+				} while (!data.equals("0") && !data.equals("13"));
 			}
 			// catch exception and show message in case there's an error
 		} catch (IOException | NumberFormatException nfe) {

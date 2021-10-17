@@ -19,11 +19,12 @@ public class Clientes {
 	private String direccion;
 	private String email;
 	private String password;
+	private String metododePago;
 	private String nombre;
 	private String puntosdePromociones;
 
 	public Clientes(int id, String apellidoPaterno, String apellidoMaterno, String nombre, String curp, String genero,
-			String fechadeNacimiento, String edad, String direccion, String email, String password,
+			String fechadeNacimiento, String edad, String direccion, String email, String password, String metododePago,
 			String puntosdePromociones) {
 		this.id = id;
 		this.apellidoPaterno = apellidoPaterno;
@@ -36,6 +37,7 @@ public class Clientes {
 		this.direccion = direccion;
 		this.email = email;
 		this.password = password;
+		this.metododePago = metododePago;
 		this.puntosdePromociones = puntosdePromociones;
 	}
 
@@ -82,6 +84,10 @@ public class Clientes {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public void setMetodoDePago(String metododePago) {
+		this.metododePago = metododePago;
 	}
 
 	public void setpuntosdePromociones(String puntosdePromociones) {
@@ -132,6 +138,10 @@ public class Clientes {
 		return this.password;
 	}
 
+	public String getMetodoDePago() {
+		return this.metododePago;
+	}
+
 	public String getpuntosdePromociones() {
 		return this.puntosdePromociones;
 	}
@@ -143,7 +153,8 @@ public class Clientes {
 				+ this.apellidoPaterno + "\n" + "Apellido Materno: " + this.apellidoMaterno + "\n" + "CURP:" + this.curp + "\n"
 				+ "Genero: " + this.genero + "\n" + "Fecha de Nacimiento" + this.fechadeNacimiento + "\n" + "Edad: " + this.edad
 				+ "\n" + "Direccion: " + this.direccion + "\n" + "E-mail: " + this.email + "\n" + "Password: " + this.password
-				+ "\n" + "Puntos de promociones: " + this.puntosdePromociones + " puntos" + "\n";
+				+ "\n" + "Metodo de pago: " + this.metododePago + "\n" + "Puntos de promociones: " + this.puntosdePromociones
+				+ " puntos" + "\n";
 		return s;
 	}
 
