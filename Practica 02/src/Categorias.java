@@ -13,10 +13,10 @@ public class Categorias {
 
 	private String nombreCategoria;
 	private String descripcionCategoria; //paterno
-	private int numeroProductos; // podria funcionar como telefono
+	private String numeroProductos; // podria funcionar como telefono
 	private int id;
 
-	public Categorias (String nombreCategoria, String descripcionCategoria, int numeroProductos) {
+	public Categorias (int id, String nombreCategoria, String descripcionCategoria, String numeroProductos) {
 		
 		this.nombreCategoria = nombreCategoria;
 		this.descripcionCategoria = descripcionCategoria;
@@ -50,11 +50,11 @@ public class Categorias {
 
 	//Numero de productos en la categoria
 
-	public void setNumeroProductos(int numeroProductos){
+	public void setNumeroProductos(String numeroProductos){
 		this.numeroProductos = numeroProductos;
 	}
 
-	public int getNumeroProductos(){
+	public String getNumeroProductos(){
 		return this.numeroProductos;
 	}
 

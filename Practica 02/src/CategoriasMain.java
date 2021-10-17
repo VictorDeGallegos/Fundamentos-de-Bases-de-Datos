@@ -57,7 +57,7 @@ public class CategoriasMain {
 		 */
 		try{
 
-			filereader = new FileReader(file);
+			fileReader = new FileReader(file);
 		}catch(FileNotFoundException e){
 
 			//Se lanza mensaje al usuario si la excepcion atrapa algo
@@ -95,7 +95,7 @@ public class CategoriasMain {
 				 */
 				String[] data = line.split(";"); 
 
-				Categorias s = new Categorias(Integer.parseInt (data[0], data[1], data[2]));
+				Categorias s = new Categorias(Integer.parseInt(data[0]), data[1], data[2], data[3]);
 
 				lista.add(s);
 				line = bufferedReader.readLine();
@@ -126,7 +126,7 @@ public class CategoriasMain {
 		do{
 			//Menu mostrado en terminal
 			System.out.println("♔ ♕ ♔ ♕ ♔ ♕ ♔ ♕ ♔ ♕  N I X U T® ♔ ♕ ♔ ♕ ♔ ♕ ♔ ♕ ♔ ");
-			System.out.println("\n         SISTEMA DE GESTION DE CATEGORIAS         \n")
+			System.out.println("\n         SISTEMA DE GESTION DE CATEGORIAS         \n");
 			System.out.println("| a - Agregar una nueva categoria                |");
 			System.out.println("| b - Buscar una categoria                       |");
 			System.out.println("| c - Mostrar una categoria                      |");
@@ -147,7 +147,7 @@ public class CategoriasMain {
 			 }catch(IOException e){
 
 			 	//Mensaje lanzado en terminal para avisar al usuario de un error
-			 	System.out.println(" Algo salio mal...! ")
+			 	System.out.println(" Algo salio mal...! ");
 			 }
 			 
 			 /**
@@ -201,7 +201,7 @@ public class CategoriasMain {
 					System.out.println("\n*** Opcion invalida ! Intentalo de nuevo ! *** \n");
 					break;
 			}
-		} while (!input.equalsIgnoreCase("x"));
+		} while (!entradaUsuario.equalsIgnoreCase("x"));
 	}
 
 
@@ -234,17 +234,17 @@ public class CategoriasMain {
 
 		// crea un nuevo BufferedWriter
 
-		BufferedWriter bufferedReader = new BufferedWriter(fileWriter);
+		BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
 		// Intente escribir datos en el archivo línea por línea
 		try {
 			// El bucle que ejecutará la lista de matrices "lista"
 			for (int x = 0; x < list.size(); x++) {
 				// writes variables(values) to the file
-				bw.write(list.get(x).getNombreCategoria() + ";");
-				bw.write(list.get(x).getNumeroProductos() + ";");
-				bw.write(list.get(x).getDescripcionCategoria() + ";");
+				bufferedWriter.write(list.get(x).getNombreCategoria() + ";");
+				bufferedWriter.write(list.get(x).getNumeroProductos() + ";");
+				bufferedWriter.write(list.get(x).getDescripcionCategoria() + ";");
 
-				bw.write(System.getProperty("line.separator"));
+				bufferedWriter.write(System.getProperty("line.separator"));
 			}
 			
 		} catch (IOException ioe) {
@@ -259,7 +259,7 @@ public class CategoriasMain {
 		 */
 
 		try {
-			bw.close();
+			bufferedReader.close();
 		} catch (IOException e) {
 
 			// mostrar mensaje en caso de que haya un error al cerrar BufferedWriter
@@ -271,7 +271,7 @@ public class CategoriasMain {
 		 */
 
 		try {
-			fw.close();
+			fileWriter.close();
 		} catch (IOException e) {
 			// mostrar mensaje en caso de que haya un error al cerrar FileWriter
 			System.out.println("*** Error al cerrar FileWriter ***");
@@ -280,28 +280,29 @@ public class CategoriasMain {
 
 	/**
 	 * Metodo para agregar categorias, con sus respectivos atributos
-	 */
+	 *
 	public void addNewCategoria(){
 		
 		/**
 		 * Declaracion de variables para el metodo
-		 */
+		 *
 
 		String nombreCategoria = " ";
 		String descripcionCategoria = " ";
 		int numeroProductos = 0;
+		int id = id;
 		String confirm = " ";
 
 
 		/**
 		 * Declaracion de estructura de control que le pedirá al usuario que ingrese datos de Clientes
-		 */
+		 *
 
 		do {
 
 			/**
 			 * Lanzamos excepcion para atrapar errores del usuario
-			 */	
+			 *
 			try {
 				
 				// flag
@@ -309,113 +310,8 @@ public class CategoriasMain {
 				
 				/**
 				 * Bucle que validará el nombre y comprobará si ya existe, si es asi lanzara mensaje al usuario
-				 */
-				do {
-				
-					// muestre el mensaje pidiendo al usuario que ingrese nombre
-					System.out.println("Ingresa el nombre de la categoria");
-
-					// id recibe la entrada del usuario y la bandera usa el método checkID para
-					// verificar si
-					// ya existe
-					nombre = bufferedReader.readLine();
-					flag = ValidarMetodosClientes.checkID(nombre, list);
-					// condición si bandera == verdadero mostrar ID de mensaje ya existe
-					if (flag == true) {
-						System.out.println();
-						System.out.println("***** El ID ya fue registrado, ingresa un ID nuevo *****");
-						System.out.println();
-					}
-					// el bucle se ejecuta mientras la bandera == verdadero
-				} while (flag == true);
-
-				// bucle que solicita la entrada del usuario, comprueba si la entrada son letras
-				// y si el
-				// el campo no está en blanco
-				do {
-					nombre = ValidarMetodosClientes.getOnlyLetters("Ingrese el Nombre del cliente (solo letras): ");
-					ValidarMetodosClientes.emptyField(nombre);
-					// Mientras el campo está vacío, solicite al usuario que ingrese nuevamente
-				} while (nombre.isEmpty());
-
-				// bucle que solicita la entrada del usuario, comprueba si la entrada son letras
-				// y si el
-				// el campo no está vacio
-				do {
-					apellidoPaterno = ValidarMetodosClientes
-							.getOnlyLetters("Ingresa el Apellido Paterno del cliente (solo letras): ");
-					ValidarMetodosClientes.emptyField(apellidoPaterno);
-					// Mientras el campo está vacío, solicite a la usuario que ingrese nuevamente
-				} while (apellidoPaterno.isEmpty());
-
-				// bucle que solicita la entrada del usuario, comprueba si la entrada son letras
-				// y si el
-				// no esta vacio
-				do {
-					apellidoMaterno = ValidarMetodosClientes
-							.getOnlyLetters("Ingresa el Apellido Materno del cliente (solo letras): ");
-					ValidarMetodosClientes.emptyField(apellidoMaterno);
-					// Mientras el campo está vacío, solicite al usuario que ingrese nuevamente
-				} while (apellidoMaterno.isEmpty());
-
-				// bucle que solicita la entrada del usuario, comprueba si la entrada es un
-				// correo electrónico válido y si
-				// el campo no esta en vacio
-				do {
-					email = ValidarMetodosClientes.getEmail("Ingresa el Email del cliente: ");
-					// ValidationMethods.emptyField(email);
-					if (ValidarMetodosClientes.emptyField(email))
-						email = "";
-					// Mientras el campo está vacío, solicite al usuario que ingrese nuevamente
-				} while (email.isEmpty());
-
-				// bucle que solicita la entrada del usuario, comprueba si la entrada es un
-				// número válido y si
-				// el campo no esta vacio
-				do {
-					// System.out.println("Please enter Clientes telefono number (numbers only): ");
-					telefono = ValidarMetodosClientes.getPhone("Ingresa el numero de telefono del cliente (solo numeros): ");
-					ValidarMetodosClientes.emptyField(telefono);
-					System.out.println();
-					// Mientras el campo está vacío, solicite al usuario que ingrese nuevamente
-				} while (telefono.isEmpty());
-				do {
-					try {
-						// Mostrar mensaje pidiendo al usuario que confirme la entrada para los Clientes
-						System.out.println("Confirmas que es correcta la informacion de este cliente? Y/N");
-						// confirmar recibir la entrada del usuario
-						confirm = br.readLine();
-						// captura la excepción y muestra el mensaje en caso de que haya un error
-					} catch (IOException e) {
-						System.out.println("*** Algo salio mal *** ");
-					}
-					// condición en caso de que la entrada del usuario sea Y, elimine los Clientes
-					// de la lista
-					if (confirm.equalsIgnoreCase("Y")) {
-						// Crea un objeto Clientes y establece el valor de los atributos
-						Clientes s = new Clientes(id, apellidoPaterno, apellidoMaterno, nombre, email, telefono);
-						// Agregar a ArrayList (lista)
-						list.add(s); // mostrar mensaje de que Clientes se eliminó con éxito y una línea vacía
-						System.out.println("****** Cliente Agregado exitosamente !!! ******");
-						System.out.println();
-					}
-					// El bucle se ejecuta mientras la entrada del usuario no es Y o N
-				} while (!confirm.equalsIgnoreCase("Y") && !confirm.equalsIgnoreCase("N"));
-				break;
-				// Catch errores / excepciones
-			} catch (IOException | NumberFormatException | StringIndexOutOfBoundsException e) {
-				// mostrar mensaje si hay un error y pedirle al usuario que ingrese datos
-				// nuevamente
-				System.out.println("***** Entrada invalida..! Por favor ingresa el formato correcto *****");
-				System.out.println();
-			}
-			// mientras la condición es verdadera imprime una línea vacía y llama al método
-			// pressEnter ()
-		} while (true);
-		System.out.println();
-		pressEnter();
-	}// end of method addNewClientes
-		// Método para buscar Clientes
-
+				 *
+				do {}
+				*/
 
 }
