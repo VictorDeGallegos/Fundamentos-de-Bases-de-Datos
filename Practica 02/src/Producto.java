@@ -1,5 +1,4 @@
 
-
 /**
  * Clase que representa un producto.
  * 
@@ -16,9 +15,9 @@ public class Producto {
     private String descuento;
 
     // Constructor del producto
-    public Producto(int noDeSerie, String nombre , String precio,String stock, String descripcion, String descuento) {
+    public Producto(int noDeSerie, String nombre, String precio, String stock, String descripcion, String descuento) {
         this.noDeSerie = noDeSerie;
-        this.precio=precio;
+        this.precio = precio;
         this.stock = stock;
         this.descripcion = descripcion;
         this.nombre = nombre;
@@ -35,14 +34,13 @@ public class Producto {
         this.noDeSerie = noDeSerie;
     }
 
-    public String getPrecio(){
+    public String getPrecio() {
         return precio;
     }
 
-    public void setPrecio(String precio){
-        this.precio=precio;
+    public void setPrecio(String precio) {
+        this.precio = precio;
     }
-
 
     public String getStock() {
         return stock;
@@ -83,9 +81,9 @@ public class Producto {
      */
     @Override
     public String toString() {
-        String s = "Numero de Serie: " + this.noDeSerie + "\n" + "Nombre " + this.nombre + "\n" + "Precio"
-                + this.precio + "\n" + "Descripcion " + this.descripcion + "\n" + "Descuento: " + this.descuento
-                + "%";
+        String s = "Numero de Serie: " + this.noDeSerie + "\n" + "Nombre del producto: " + this.nombre + "\n"
+                + "Precio: " + "$" + this.precio + "\n" + "Descripcion: " + this.descripcion + "\n" + "Descuento: "
+                + this.descuento + "%";
         return s;
     }
 
