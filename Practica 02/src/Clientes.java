@@ -12,18 +12,33 @@ public class Clientes {
 	private int id;
 	private String apellidoPaterno;
 	private String apellidoMaterno;
-	private String nombre;
+	private String curp;
+	private String genero;
+	private String fechadeNacimiento;
+	private String edad;
+	private String direccion;
 	private String email;
-	private String telefono;
+	private String password;
+	private String metododePago;
+	private String nombre;
+	private String puntosdePromociones;
 
-	public Clientes(int id, String apellidoPaterno, String apellidoMaterno, String nombre, String email,
-			String telefono) {
+	public Clientes(int id, String apellidoPaterno, String apellidoMaterno, String nombre, String curp, String genero,
+			String fechadeNacimiento, String edad, String direccion, String email, String password, String metododePago,
+			String puntosdePromociones) {
 		this.id = id;
 		this.apellidoPaterno = apellidoPaterno;
 		this.apellidoMaterno = apellidoMaterno;
 		this.nombre = nombre;
+		this.curp = curp;
+		this.genero = genero;
+		this.fechadeNacimiento = fechadeNacimiento;
+		this.edad = edad;
+		this.direccion = direccion;
 		this.email = email;
-		this.telefono = telefono;
+		this.password = password;
+		this.metododePago = metododePago;
+		this.puntosdePromociones = puntosdePromociones;
 	}
 
 	// setters y getters
@@ -43,12 +58,40 @@ public class Clientes {
 		this.nombre = nombre;
 	}
 
+	public void setCurp(String curp) {
+		this.curp = curp;
+	}
+
+	public void setGenero(String genero) {
+		this.genero = genero;
+	}
+
+	public void setFechaDeNacimiento(String fechadeNacimiento) {
+		this.fechadeNacimiento = fechadeNacimiento;
+	}
+
+	public void setEdad(String edad) {
+		this.edad = edad;
+	}
+
+	public void setDireccion(String direccion) {
+		this.direccion = direccion;
+	}
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
 
-	public void setTelefono(String telefono) {
-		this.telefono = telefono;
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public void setMetodoDePago(String metododePago) {
+		this.metododePago = metododePago;
+	}
+
+	public void setpuntosdePromociones(String puntosdePromociones) {
+		this.puntosdePromociones = puntosdePromociones;
 	}
 
 	public int getId() {
@@ -67,20 +110,51 @@ public class Clientes {
 		return this.nombre;
 	}
 
+	public String getCurp() {
+		return this.curp;
+	}
+
+	public String getGenero() {
+		return this.genero;
+	}
+
+	public String getFechaDeNacimiento() {
+		return this.fechadeNacimiento;
+	}
+
+	public String getEdad() {
+		return this.edad;
+	}
+
+	public String getDireccion() {
+		return this.direccion;
+	}
+
 	public String getEmail() {
 		return this.email;
 	}
 
-	public String getTelefono() {
-		return this.telefono;
+	public String getPassword() {
+		return this.password;
+	}
+
+	public String getMetodoDePago() {
+		return this.metododePago;
+	}
+
+	public String getpuntosdePromociones() {
+		return this.puntosdePromociones;
 	}
 
 	// class toString
 	public String toString() {
 
 		String s = "ID Cliente: " + this.id + "\n" + "Nombre: " + this.nombre + "\n" + "Apellido Paterno: "
-				+ this.apellidoPaterno + "\n" + "Apellido Materno: " + this.apellidoMaterno + "\n" + "E-mail: " + this.email
-				+ "\n" + "Telefono: " + this.telefono + "\n";
+				+ this.apellidoPaterno + "\n" + "Apellido Materno: " + this.apellidoMaterno + "\n" + "CURP:" + this.curp + "\n"
+				+ "Genero: " + this.genero + "\n" + "Fecha de Nacimiento" + this.fechadeNacimiento + "\n" + "Edad: " + this.edad
+				+ "\n" + "Direccion: " + this.direccion + "\n" + "E-mail: " + this.email + "\n" + "Password: " + this.password
+				+ "\n" + "Metodo de pago: " + this.metododePago + "\n" + "Puntos de promociones: " + this.puntosdePromociones
+				+ " puntos" + "\n";
 		return s;
 	}
 

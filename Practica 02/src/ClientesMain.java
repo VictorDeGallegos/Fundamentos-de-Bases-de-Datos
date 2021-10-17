@@ -39,7 +39,7 @@ public class ClientesMain {
 	public ClientesMain() {
 		// llamada a los metodos
 		readFile();
-		showMenu();
+		showMenuClientes();
 	}// fin
 
 	// Método para leer el archivo (Clientes.csv)
@@ -70,8 +70,10 @@ public class ClientesMain {
 				String[] data = line.split(";");
 				// Cree un objeto Clientes y establezca el valor de los atributos (Id, apellido
 				// paterno,materno
-				// nombre, email, telefono)
-				Clientes s = new Clientes(Integer.parseInt(data[0]), data[1], data[2], data[3], data[4], data[5]);
+				// nombre, curp, direccion, genero, fecha de nacimiento, edad, email, password,
+				// metodos de pago, puntosdePromociones)
+				Clientes s = new Clientes(Integer.parseInt(data[0]), data[1], data[2], data[3], data[4], data[5], data[6],
+						data[7], data[8], data[9], data[10], data[11], data[12]);
 				// Agregar a ArrayList
 				list.add(s);
 				// Sigue leyendo líneas
@@ -88,7 +90,7 @@ public class ClientesMain {
 	}// Fin del metodo readFile
 
 	// Method para mostrar el menu principal de Sistema para la Gestion de Usuarios
-	public void showMenu() {
+	public void showMenuClientes() {
 		// Cadena que recibirá información del usuario
 		String input = " ";
 		// bucle que imprimirá el menú principal en la pantalla hasta que el usuario
@@ -192,8 +194,15 @@ public class ClientesMain {
 				bw.write(list.get(x).getApellidoPaterno() + ";");
 				bw.write(list.get(x).getApellidoMaterno() + ";");
 				bw.write(list.get(x).getNombre() + ";");
+				bw.write(list.get(x).getCurp() + ";");
+				bw.write(list.get(x).getGenero() + ";");
+				bw.write(list.get(x).getFechaDeNacimiento() + ";");
+				bw.write(list.get(x).getEdad() + ";");
+				bw.write(list.get(x).getDireccion() + ";");
 				bw.write(list.get(x).getEmail() + ";");
-				bw.write(list.get(x).getTelefono() + ";");
+				bw.write(list.get(x).getPassword() + ";");
+				bw.write(list.get(x).getMetodoDePago() + ";");
+				bw.write(list.get(x).getpuntosdePromociones() + ";");
 
 				bw.write(System.getProperty("line.separator"));
 			}
@@ -220,16 +229,23 @@ public class ClientesMain {
 	// Método para agregar nuevos clientes
 	public void addNewClientes() {
 		/*
-		 * Method should get input from user add details to the list add details to the
-		 * file
+		 * El método debe obtener información del usuario agregar detalles a la lista
+		 * agregar detalles al archivo
 		 */
 		// declarar variables
 		int id = 0;
 		String nombre = " ";
 		String apellidoPaterno = " ";
 		String apellidoMaterno = " ";
+		String curp = " ";
+		String genero = " ";
+		String fechadeNacimiento = " ";
+		String edad = " ";
+		String direccion = " ";
 		String email = " ";
-		String telefono = " ";
+		String password = " ";
+		String metododePago = " ";
+		String puntosdePromociones = " ";
 		String confirm = " ";
 		// bucle que le pedirá al usuario que ingrese datos de Clientes
 		do {
@@ -262,7 +278,8 @@ public class ClientesMain {
 				// y si el
 				// el campo no está en blanco
 				do {
-					nombre = ValidarMetodosClientes.getOnlyLetters("Ingrese el Nombre del cliente (solo letras): ");
+					nombre = ValidarMetodosClientes
+							.getOnlyLettersSpace("Ingrese el o los Nombres(s) del cliente (solo letras): ");
 					ValidarMetodosClientes.emptyField(nombre);
 					// Mientras el campo está vacío, solicite al usuario que ingrese nuevamente
 				} while (nombre.isEmpty());
@@ -287,6 +304,56 @@ public class ClientesMain {
 					// Mientras el campo está vacío, solicite al usuario que ingrese nuevamente
 				} while (apellidoMaterno.isEmpty());
 
+				// bucle que solicita la entrada del usuario, comprueba si la entrada son letras
+				// y numeros
+				// y si el
+				// no esta vacio
+				do {
+					curp = ValidarMetodosClientes.getCurp("Ingresa el CURP del cliente: ");
+					ValidarMetodosClientes.emptyField(curp);
+					// Mientras el campo está vacío, solicite al usuario que ingrese nuevamente
+				} while (curp.isEmpty());
+
+				// bucle que solicita la entrada del usuario, comprueba si la entrada son letras
+				// y si el
+				// no esta vacio
+				do {
+					genero = ValidarMetodosClientes.getGenero("Ingresa el Genero del cliente (M o F): ");
+					ValidarMetodosClientes.emptyField(genero);
+					// Mientras el campo está vacío, solicite al usuario que ingrese nuevamente
+				} while (genero.isEmpty());
+
+				// bucle que solicita la entrada del usuario, comprueba si la entrada son
+				// numeros
+				// y si el
+				// no esta vacio
+				do {
+					fechadeNacimiento = ValidarMetodosClientes
+							.getFechaDeNacimiento("Ingresa tu fecha de nacimiento (DD/MM/YY): ");
+					ValidarMetodosClientes.emptyField(fechadeNacimiento);
+					// Mientras el campo está vacío, solicite al usuario que ingrese nuevamente
+				} while (fechadeNacimiento.isEmpty());
+
+				// bucle que solicita la entrada del usuario, comprueba si la entrada son 2
+				// numeros
+				// y si el
+				// no esta vacio
+				do {
+					edad = ValidarMetodosClientes.getEdad("Ingresa tu Edad (2 digitos): ");
+					ValidarMetodosClientes.emptyField(edad);
+					// Mientras el campo está vacío, solicite al usuario que ingrese nuevamente
+				} while (edad.isEmpty());
+
+				// bucle que solicita la entrada del usuario, comprueba si la entrada son letras
+				// y numeros
+				// y si el
+				// no esta vacio
+				do {
+					direccion = ValidarMetodosClientes.getOnlyLettersSpaceNumber("Ingresa la Direccion del cliente: ");
+					ValidarMetodosClientes.emptyField(direccion);
+					// Mientras el campo está vacío, solicite al usuario que ingrese nuevamente
+				} while (direccion.isEmpty());
+
 				// bucle que solicita la entrada del usuario, comprueba si la entrada es un
 				// correo electrónico válido y si
 				// el campo no esta en vacio
@@ -299,15 +366,40 @@ public class ClientesMain {
 				} while (email.isEmpty());
 
 				// bucle que solicita la entrada del usuario, comprueba si la entrada es un
+				// password segura y si
+				// el campo no esta en vacio
+				do {
+					password = ValidarMetodosClientes.getPassword("Ingresa la password del cliente: ");
+					// ValidationMethods.emptyField(paswword);
+					if (ValidarMetodosClientes.emptyField(password))
+						password = "";
+					// Mientras el campo está vacío, solicite al usuario que ingrese nuevamente
+				} while (password.isEmpty());
+
+				// bucle que solicita la entrada del usuario, comprueba si la entrada es un
+				// metodo de pago
+				// el campo no esta en vacio
+				do {
+					metododePago = ValidarMetodosClientes
+							.getOnlyLetters("Ingresa el metodo de pago del cliente: (Efectivo o Tarjeta, Paypal, Transferencia): ");
+					// ValidationMethods.emptyField(paswword);
+					if (ValidarMetodosClientes.emptyField(metododePago))
+						metododePago = "";
+					// Mientras el campo está vacío, solicite al usuario que ingrese nuevamente
+				} while (metododePago.isEmpty());
+
+				// bucle que solicita la entrada del usuario, comprueba si la entrada es un
 				// número válido y si
 				// el campo no esta vacio
 				do {
-					// System.out.println("Please enter Clientes telefono number (numbers only): ");
-					telefono = ValidarMetodosClientes.getPhone("Ingresa el numero de telefono del cliente (solo numeros): ");
-					ValidarMetodosClientes.emptyField(telefono);
+					// System.out.println("Please enter Clientes puntosdePromociones number (numbers
+					// only): ");
+					puntosdePromociones = ValidarMetodosClientes
+							.getPromo("Ingresa los puntos de Promociones del cliente (solo numeros): ");
+					ValidarMetodosClientes.emptyField(puntosdePromociones);
 					System.out.println();
 					// Mientras el campo está vacío, solicite al usuario que ingrese nuevamente
-				} while (telefono.isEmpty());
+				} while (puntosdePromociones.isEmpty());
 				do {
 					try {
 						// Mostrar mensaje pidiendo al usuario que confirme la entrada para los Clientes
@@ -322,7 +414,8 @@ public class ClientesMain {
 					// de la lista
 					if (confirm.equalsIgnoreCase("Y")) {
 						// Crea un objeto Clientes y establece el valor de los atributos
-						Clientes s = new Clientes(id, apellidoPaterno, apellidoMaterno, nombre, email, telefono);
+						Clientes s = new Clientes(id, apellidoPaterno, apellidoMaterno, nombre, curp, genero, fechadeNacimiento,
+								edad, direccion, email, password, metododePago, puntosdePromociones);
 						// Agregar a ArrayList (lista)
 						list.add(s); // mostrar mensaje de que Clientes se eliminó con éxito y una línea vacía
 						System.out.println("****** Cliente Agregado exitosamente !!! ******");
@@ -348,13 +441,14 @@ public class ClientesMain {
 
 	public void searchClientes() {
 		/*
-		 * El programa debe buscar por número de Clientes o por nombre o apellido
+		 * El programa debe buscar por número de Clientes o por nombre, apellido o curp
 		 * paterno buscar debe mostrar todos los Clientes que cumplen con la búsqueda
 		 */
 		// declarando variables
 		int id = 0;
 		String nombre = " ";
 		String apellidoPaterno = " ";
+		String curp = " ";
 		String input = " ";
 		// Intente obtener información del usuario para refinar la búsqueda por Id de
 		// cliente, nombre o
@@ -365,6 +459,7 @@ public class ClientesMain {
 			System.out.println("| 1 - Clientes (ID)                |");
 			System.out.println("| 2 - Clientes (NOMBRE)            |");
 			System.out.println("| 3 - Clientes (APELLIDO PATERNO)  |");
+			System.out.println("| 4 - Clientes (CURP)              |");
 			System.out.println("****************************");
 			input = br.readLine();
 			// flag
@@ -406,7 +501,7 @@ public class ClientesMain {
 				// Pídale al usuario que ingrese los datos de Cliente por nombre
 				case "2":
 					do {
-						nombre = ValidarMetodosClientes.getOnlyLetters("Ingresa el nombre del cliente: ");
+						nombre = ValidarMetodosClientes.getOnlyLettersSpace("Ingresa el nombre del cliente: ");
 						ValidarMetodosClientes.emptyField(nombre);
 						// Si el campo está vacío, solicite al usuario que ingrese nuevamente
 					} while (nombre.isEmpty());
@@ -449,6 +544,30 @@ public class ClientesMain {
 					// encontrado" y una línea vacía
 					if (found == false) {
 						System.out.println("***** Apellido paterno no encontrados :( *****");
+						System.out.println();
+					}
+					break;
+				// pedirle al usuario que ingrese los detalles de Clientes por curp
+				case "4":
+					do {
+						curp = ValidarMetodosClientes.getCurp("Ingresa el CURP del cliente: ");
+						ValidarMetodosClientes.emptyField(curp);
+						// Si el campo está vacío, solicite al usuario que ingrese nuevamente
+					} while (curp.isEmpty());
+					found = false;
+					// bucle que ejecuta la lista
+					for (Clientes s : list) {
+						// si encuentra los Clientes que coinciden con el apellido paterno lo muestra en
+						// la pantalla y cambia la bandera a true
+						if (s.getCurp().contains(curp)) {
+							System.out.println(s);
+							found = true;
+						}
+					}
+					// si no se encuentra la ID muestra el mensaje "apellido paterno no
+					// encontrado" y una línea vacía
+					if (found == false) {
+						System.out.println("***** CURP no encontrado :( *****");
 						System.out.println();
 					}
 					break;
@@ -512,9 +631,10 @@ public class ClientesMain {
 	// Metodo modify Clientes
 	public void modifyClientes() {
 		/*
-		 * El programa debe cambiar los detalles (apellidoPaterno, apellidoMaterno
-		 * nombre, email, telefono) excepto Los cambios de número de cliente deben
-		 * guardarse en la lista y el archivo
+		 * El programa debe cambiar los detalles (apellidoPaterno, apellidoMaterno,
+		 * curp, genero, direccion, nombre, email, password, puntosdePromociones)
+		 * excepto Los cambios de número de cliente deben guardarse en la lista y el
+		 * archivo
 		 */
 		// declarar variables y darles valores
 		int input = 0;
@@ -522,8 +642,15 @@ public class ClientesMain {
 		String nombre = " ";
 		String apellidoPaterno = " ";
 		String apellidoMaterno = " ";
+		String curp = " ";
+		String genero = " ";
+		String fechadeNacimiento = " ";
+		String edad = " ";
+		String direccion = " ";
 		String email = " ";
-		String telefono = " ";
+		String password = " ";
+		String metododePago = " ";
+		String puntosdePromociones = " ";
 		String confirm = " ";
 
 		// mostrar detalles de Clientes por número de Clientes
@@ -555,31 +682,50 @@ public class ClientesMain {
 			} else {
 				// bucle que le pedirá al usuario que actualice la información de Clientes por:
 				// nombre, apellido
-				// paterno,
-				// email or numero de telefono
+				// paterno, materno , curp, genero, fecha de nacimiento, edad, direccion
+				// email metodo de pago numero de puntosdePromociones
 				// or regresa al menu principal
-				// información de nombre, apellido paterno, email o numero de telefono será
+				// información de nombre, apellido paterno, email o numero de
+				// puntosdePromociones será
 				// guardada
-				// in "case 6"
+				// in "case 9"
 
 				nombre = cli.getNombre();
 				apellidoPaterno = cli.getApellidoPaterno();
 				apellidoMaterno = cli.getApellidoMaterno();
+				curp = cli.getCurp();
+				genero = cli.getGenero();
+				fechadeNacimiento = cli.getFechaDeNacimiento();
+				edad = cli.getEdad();
+				direccion = cli.getDireccion();
 				email = cli.getEmail();
-				telefono = cli.getTelefono();
+				password = cli.getPassword();
+				metododePago = cli.getMetodoDePago();
+				puntosdePromociones = cli.getpuntosdePromociones();
 				do {
+					System.out.println("Vista previa" + "\n");
 					System.out.println("ID del cliente: " + cli.getId() + "\n" + "Nombre: " + nombre + "\n" + "Apellido Paterno: "
-							+ apellidoPaterno + "\n" + "Apellido Materno: " + apellidoMaterno + "\n" + "E-mail: " + email + "\n"
-							+ "Telefono: " + telefono + "\n");
+							+ apellidoPaterno + "\n" + "Apellido Materno: " + apellidoMaterno + "\n" + "Curp: " + curp + "\n"
+							+ "Genero: " + genero + "\n" + "Fecha de nacimiento: " + fechadeNacimiento + "\n" + "Edad :" + edad
+							+ " años" + "\n" + "Direccion: " + direccion + "\n" + "E-mail: " + email + "\n" + "Password: " + password
+							+ "\n" + "Metodo de pago: " + metododePago + "\n" + "Puntos de promociones: " + puntosdePromociones
+							+ " puntos" + "\n");
 					System.out.println("*****************************************");
 					System.out.println("Selecciona la opcion que desea editar del Cliente:    ");
-					System.out.println("| 1 - Nombre del Cliente                        |");
-					System.out.println("| 2 - Apellido Paterno del Cliente              |");
-					System.out.println("| 3 - Apellido Materno del Cliente              |");
-					System.out.println("| 4 - Email del cliente                         |");
-					System.out.println("| 5 - Numero de telefono del cliente            |");
-					System.out.println("| 6 - Guardar cambios y volver a Menu principal |");
-					System.out.println("| 0 - Regresar al menu principal                |");
+					System.out.println("| 1 - Nombre del Cliente                         |");
+					System.out.println("| 2 - Apellido Paterno del Cliente               |");
+					System.out.println("| 3 - Apellido Materno del Cliente               |");
+					System.out.println("| 4 - CURP del Cliente                           |");
+					System.out.println("| 5 - Genero del Cliente                         |");
+					System.out.println("| 6 - Fecha de nacimiento                        |");
+					System.out.println("| 7 - Edad                                       |");
+					System.out.println("| 8 - Direccion del Cliente                      |");
+					System.out.println("| 9 - Email del Cliente                          |");
+					System.out.println("| 10 - Password del Cliente                      |");
+					System.out.println("| 11 - Metodo de pago del Cliente                |");
+					System.out.println("| 12 - Puntos de promociones del Cliente         |");
+					System.out.println("| 13 - GUARDAR CAMBIOS y volver a Menu principal |");
+					System.out.println("| 0 - Regresar al menu principal                 |");
 					System.out.println("*****************************************");
 					data = br.readLine();
 					found = false;
@@ -590,7 +736,8 @@ public class ClientesMain {
 						// Pídale al usuario que ingrese el Nombre del Cliente si la opción es 1
 						case "1":
 							do {
-								nombre = ValidarMetodosClientes.getOnlyLetters("Ingresa el nuevo Nombre del cliente (solo letras): ");
+								nombre = ValidarMetodosClientes
+										.getOnlyLettersSpace("Ingresa el o los nuevos nombre(s) del cliente (solo letras): ");
 								ValidarMetodosClientes.emptyField(nombre);
 								// Si el campo está vacío, solicite al usuario que ingrese nuevamente
 							} while (nombre.isEmpty());
@@ -615,12 +762,67 @@ public class ClientesMain {
 										.getOnlyLetters("Ingresa el nuevo apellido materno del cliente (solo letras): ");
 								ValidarMetodosClientes.emptyField(apellidoMaterno);
 								// Si el campo está vacío, solicite al usuario que ingrese nuevamente
-							} while (apellidoPaterno.isEmpty());
+							} while (apellidoMaterno.isEmpty());
+							System.out.println();
+							break;
+						// pedirle al usuario que ingrese curp del Cliente si la opción
+						// es 4
+						case "4":
+							do {
+								curp = ValidarMetodosClientes.getCurp("Ingresa el nuevo CURP del cliente (solo letras): ");
+								ValidarMetodosClientes.emptyField(curp);
+
+								// Si el campo está vacío, solicite al usuario que ingrese nuevamente
+							} while (curp.isEmpty());
+							System.out.println();
+							break;
+						// pedirle al usuario que ingrese el genero del Cliente si la opción
+						// es 5
+						case "5":
+							do {
+								genero = ValidarMetodosClientes.getGenero("Ingrese el nuevo Genero (M o F): ");
+								ValidarMetodosClientes.emptyField(genero);
+								// Si el campo está vacío, solicite al usuario que ingrese nuevamente
+							} while (genero.isEmpty());
+							System.out.println();
+							break;
+						// pedirle al usuario que ingrese la fecha de nacimiento del Cliente si la
+						// opción
+						// es 6
+						case "6":
+							do {
+								fechadeNacimiento = ValidarMetodosClientes.getFechaDeNacimiento(
+										"Ingresa la nueva fecha de nacimiento con el siguiente formato de ejemplo (DD/MM/YY): ");
+								ValidarMetodosClientes.emptyField(fechadeNacimiento);
+								// Si el campo está vacío, solicite al usuario que ingrese nuevamente
+							} while (fechadeNacimiento.isEmpty());
+							System.out.println();
+							break;
+						// pedirle al usuario que ingrese la fecha de nacimiento del Cliente si la
+						// opción
+						// es 7
+						case "7":
+							do {
+								edad = ValidarMetodosClientes.getEdad("Ingresa la nueva edad (Solo 2 digitos): ");
+								ValidarMetodosClientes.emptyField(edad);
+								// Si el campo está vacío, solicite al usuario que ingrese nuevamente
+							} while (edad.isEmpty());
+							System.out.println();
+							break;
+						// pedirle al usuario que ingrese la direccion Cliente si la opción
+						// es 8
+						case "8":
+							do {
+								direccion = ValidarMetodosClientes
+										.getOnlyLettersSpaceNumber("Ingresa la nueva Direccion del cliente: ");
+								ValidarMetodosClientes.emptyField(direccion);
+								// Si el campo está vacío, solicite al usuario que ingrese nuevamente
+							} while (direccion.isEmpty());
 							System.out.println();
 							break;
 						// Pedirle al usuario que ingrese el correo electrónico del Cliente si la opción
-						// es 4
-						case "4":
+						// es 9
+						case "9":
 							do {
 								email = ValidarMetodosClientes.getEmail("Ingresa el nuevo email del cliente: ");
 								ValidarMetodosClientes.emptyField(email);
@@ -628,16 +830,39 @@ public class ClientesMain {
 							} while (email.isEmpty());
 							System.out.println();
 							break;
-						// Pedirle al usuario que ingrese el telefono del Cliente si la opcion es 5
-						case "5":
+						// Pedirle al usuario que ingrese el password del Cliente si la opción
+						// es 10
+						case "10":
 							do {
-								telefono = ValidarMetodosClientes.getPhone("Ingresa el nuevo telefono del cliente: ");
-								ValidarMetodosClientes.emptyField(telefono);
+								password = ValidarMetodosClientes.getEmail("Ingresa la nueva password del cliente: ");
+								ValidarMetodosClientes.emptyField(password);
 								// Si el campo está vacío, solicite al usuario que ingrese nuevamente
-							} while (telefono.isEmpty());
+							} while (password.isEmpty());
 							System.out.println();
 							break;
-						case "6":
+						// Pedirle al usuario que ingrese el Metodo de pago del Cliente si la opción
+						// es 11
+						case "11":
+							do {
+								metododePago = ValidarMetodosClientes.getOnlyLetters(
+										"Ingresa el nuevo metodo de pago del cliente (Efectivo o Tarjeta, Paypal, Transferencia): ");
+								ValidarMetodosClientes.emptyField(metododePago);
+								// Si el campo está vacío, solicite al usuario que ingrese nuevamente
+							} while (metododePago.isEmpty());
+							System.out.println();
+							break;
+						// Pedirle al usuario que ingrese el puntosdePromociones del Cliente si la
+						// opcion es 10
+						case "12":
+							do {
+								puntosdePromociones = ValidarMetodosClientes
+										.getPromo("Ingresa los nuevos puntos de promocion del cliente: ");
+								ValidarMetodosClientes.emptyField(puntosdePromociones);
+								// Si el campo está vacío, solicite al usuario que ingrese nuevamente
+							} while (puntosdePromociones.isEmpty());
+							System.out.println();
+							break;
+						case "13":
 							do {
 								System.out.println("Confirmas los cambios realizados? Y/N");
 								try {
@@ -653,11 +878,18 @@ public class ClientesMain {
 									/* si guarda (Y) */
 									cli.setNombre(nombre);
 									cli.setApellidoPaterno(apellidoPaterno);
-									cli.setApellidoPaterno(apellidoMaterno);
+									cli.setApellidoMaterno(apellidoMaterno);
+									cli.setCurp(curp);
+									cli.setGenero(genero);
+									cli.setFechaDeNacimiento(fechadeNacimiento);
+									cli.setEdad(edad);
+									cli.setDireccion(direccion);
 									cli.setEmail(email);
-									cli.setTelefono(telefono);
+									cli.setPassword(password);
+									cli.setMetodoDePago(metododePago);
+									cli.setpuntosdePromociones(puntosdePromociones);
 									// muestra el mensaje de que Clientes se eliminó correctamente y una línea vacía
-									System.out.println("Clientes actualizado correctamente !!!");
+									System.out.println("Clientes.csv actualizado correctamente !!!");
 									System.out.println();
 								}
 								// El bucle se ejecuta mientras que la confirmación no es Y o N
@@ -678,7 +910,7 @@ public class ClientesMain {
 							break;
 					}
 					// run el bucle hasta que el caso sea 0
-				} while (!data.equals("0") && !data.equals("6"));
+				} while (!data.equals("0") && !data.equals("13"));
 			}
 			// catch exception and show message in case there's an error
 		} catch (IOException | NumberFormatException nfe) {
