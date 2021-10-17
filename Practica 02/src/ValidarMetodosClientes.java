@@ -188,6 +188,33 @@ public class ValidarMetodosClientes {
 
 	// Método que verifica si el correo electrónico es válido, muestra un mensaje de
 	// error en caso de el formato sea incorrecto
+	public static String getPassword(String lineMessage) {
+		boolean check = true;
+		String letters = "";
+		// bucle que comprobará el formato del correo electrónico
+		do {
+			check = true;
+			System.out.print(lineMessage);
+			try {
+				letters = br.readLine();
+			} catch (IOException e) {
+				System.out.println("Error al recibir la password");
+			}
+			// ASCII
+			for (int l = 0; l < letters.length(); l++) {
+				if ((((int) letters.charAt(l) < 32) || ((int) letters.charAt(l) > 126))) /* Todos los caracteres */
+					check = false;
+			}
+			if (check == false)
+				System.out.println("¡Entrada inválida! ¡Intentar otra vez!");
+			// El bucle se ejecuta mientras la verificación == falsa
+		} while (check == false);
+		return letters;
+	}
+
+	// Método que verifica si la fecha de nacimiento es válido, muestra un mensaje
+	// de
+	// error en caso de el formato sea incorrecto
 	public static String getFechaDeNacimiento(String lineMessage) {
 		boolean check = true;
 		String letters = "";
