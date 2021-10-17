@@ -72,7 +72,7 @@ public class ClientesMain {
 				// paterno,materno
 				// nombre, email, puntosdePromociones)
 				Clientes s = new Clientes(Integer.parseInt(data[0]), data[1], data[2], data[3], data[4], data[5], data[6],
-						data[7], data[8], data[9]);
+						data[7], data[8], data[9], data[10]);
 				// Agregar a ArrayList
 				list.add(s);
 				// Sigue leyendo líneas
@@ -196,6 +196,7 @@ public class ClientesMain {
 				bw.write(list.get(x).getCurp() + ";");
 				bw.write(list.get(x).getGenero() + ";");
 				bw.write(list.get(x).getFechaDeNacimiento() + ";");
+				bw.write(list.get(x).getEdad() + ";");
 				bw.write(list.get(x).getDireccion() + ";");
 				bw.write(list.get(x).getEmail() + ";");
 				bw.write(list.get(x).getpuntosdePromociones() + ";");
@@ -236,6 +237,7 @@ public class ClientesMain {
 		String curp = " ";
 		String genero = " ";
 		String fechadeNacimiento = " ";
+		String edad = " ";
 		String direccion = " ";
 		String email = " ";
 		String puntosdePromociones = " ";
@@ -327,6 +329,16 @@ public class ClientesMain {
 					// Mientras el campo está vacío, solicite al usuario que ingrese nuevamente
 				} while (fechadeNacimiento.isEmpty());
 
+				// bucle que solicita la entrada del usuario, comprueba si la entrada son 2
+				// numeros
+				// y si el
+				// no esta vacio
+				do {
+					edad = ValidarMetodosClientes.getEdad("Ingresa tu Edad (2 digitos): ");
+					ValidarMetodosClientes.emptyField(edad);
+					// Mientras el campo está vacío, solicite al usuario que ingrese nuevamente
+				} while (edad.isEmpty());
+
 				// bucle que solicita la entrada del usuario, comprueba si la entrada son letras
 				// y numeros
 				// y si el
@@ -375,7 +387,7 @@ public class ClientesMain {
 					if (confirm.equalsIgnoreCase("Y")) {
 						// Crea un objeto Clientes y establece el valor de los atributos
 						Clientes s = new Clientes(id, apellidoPaterno, apellidoMaterno, nombre, curp, genero, fechadeNacimiento,
-								direccion, email, puntosdePromociones);
+								edad, direccion, email, puntosdePromociones);
 						// Agregar a ArrayList (lista)
 						list.add(s); // mostrar mensaje de que Clientes se eliminó con éxito y una línea vacía
 						System.out.println("****** Cliente Agregado exitosamente !!! ******");
@@ -604,6 +616,7 @@ public class ClientesMain {
 		String curp = " ";
 		String genero = " ";
 		String fechadeNacimiento = " ";
+		String edad = " ";
 		String direccion = " ";
 		String email = " ";
 		String puntosdePromociones = " ";
@@ -652,6 +665,7 @@ public class ClientesMain {
 				curp = cli.getCurp();
 				genero = cli.getGenero();
 				fechadeNacimiento = cli.getFechaDeNacimiento();
+				edad = cli.getEdad();
 				direccion = cli.getDireccion();
 				email = cli.getEmail();
 				puntosdePromociones = cli.getpuntosdePromociones();
@@ -659,9 +673,9 @@ public class ClientesMain {
 					System.out.println("Vista previa" + "\n");
 					System.out.println("ID del cliente: " + cli.getId() + "\n" + "Nombre: " + nombre + "\n" + "Apellido Paterno: "
 							+ apellidoPaterno + "\n" + "Apellido Materno: " + apellidoMaterno + "\n" + "Curp: " + curp + "\n"
-							+ "Genero: " + genero + "\n" + "Fecha de nacimiento: " + fechadeNacimiento + "\n" + "Direccion: "
-							+ direccion + "\n" + "E-mail: " + email + "\n" + "Puntos de promociones: " + puntosdePromociones
-							+ " puntos" + "\n");
+							+ "Genero: " + genero + "\n" + "Fecha de nacimiento: " + fechadeNacimiento + "\n" + "Edad :" + edad
+							+ " años" + "\n" + "Direccion: " + direccion + "\n" + "E-mail: " + email + "\n"
+							+ "Puntos de promociones: " + puntosdePromociones + " puntos" + "\n");
 					System.out.println("*****************************************");
 					System.out.println("Selecciona la opcion que desea editar del Cliente:    ");
 					System.out.println("| 1 - Nombre del Cliente                        |");
@@ -670,10 +684,11 @@ public class ClientesMain {
 					System.out.println("| 4 - CURP del Cliente                          |");
 					System.out.println("| 5 - Genero del Cliente                        |");
 					System.out.println("| 6 - Fecha de nacimiento                       |");
-					System.out.println("| 7 - Direccion del Cliente                     |");
-					System.out.println("| 8 - Email del cliente                         |");
-					System.out.println("| 9 - Puntos de promociones del cliente         |");
-					System.out.println("| 10 - GUARDAR CAMBIOS y volver a Menu principal |");
+					System.out.println("| 7 - Edad                                      |");
+					System.out.println("| 8 - Direccion del Cliente                     |");
+					System.out.println("| 9 - Email del cliente                         |");
+					System.out.println("| 10 - Puntos de promociones del cliente         |");
+					System.out.println("| 11 - GUARDAR CAMBIOS y volver a Menu principal |");
 					System.out.println("| 0 - Regresar al menu principal                |");
 					System.out.println("*****************************************");
 					data = br.readLine();
@@ -746,9 +761,20 @@ public class ClientesMain {
 							} while (fechadeNacimiento.isEmpty());
 							System.out.println();
 							break;
-						// pedirle al usuario que ingrese la direccion Cliente si la opción
+						// pedirle al usuario que ingrese la fecha de nacimiento del Cliente si la
+						// opción
 						// es 7
 						case "7":
+							do {
+								edad = ValidarMetodosClientes.getEdad("Ingresa la nueva edad (Solo 2 digitos): ");
+								ValidarMetodosClientes.emptyField(edad);
+								// Si el campo está vacío, solicite al usuario que ingrese nuevamente
+							} while (edad.isEmpty());
+							System.out.println();
+							break;
+						// pedirle al usuario que ingrese la direccion Cliente si la opción
+						// es 8
+						case "8":
 							do {
 								direccion = ValidarMetodosClientes
 										.getOnlyLettersSpaceNumber("Ingresa la nueva Direccion del cliente: ");
@@ -758,8 +784,8 @@ public class ClientesMain {
 							System.out.println();
 							break;
 						// Pedirle al usuario que ingrese el correo electrónico del Cliente si la opción
-						// es 8
-						case "8":
+						// es 9
+						case "9":
 							do {
 								email = ValidarMetodosClientes.getEmail("Ingresa el nuevo email del cliente: ");
 								ValidarMetodosClientes.emptyField(email);
@@ -768,8 +794,8 @@ public class ClientesMain {
 							System.out.println();
 							break;
 						// Pedirle al usuario que ingrese el puntosdePromociones del Cliente si la
-						// opcion es 9
-						case "9":
+						// opcion es 10
+						case "10":
 							do {
 								puntosdePromociones = ValidarMetodosClientes
 										.getPromo("Ingresa los nuevos puntos de promocion del cliente: ");
@@ -778,7 +804,7 @@ public class ClientesMain {
 							} while (puntosdePromociones.isEmpty());
 							System.out.println();
 							break;
-						case "10":
+						case "11":
 							do {
 								System.out.println("Confirmas los cambios realizados? Y/N");
 								try {
@@ -798,11 +824,12 @@ public class ClientesMain {
 									cli.setCurp(curp);
 									cli.setGenero(genero);
 									cli.setFechaDeNacimiento(fechadeNacimiento);
+									cli.setEdad(edad);
 									cli.setDireccion(direccion);
 									cli.setEmail(email);
 									cli.setpuntosdePromociones(puntosdePromociones);
 									// muestra el mensaje de que Clientes se eliminó correctamente y una línea vacía
-									System.out.println("Clientes actualizado correctamente !!!");
+									System.out.println("Clientes.csv actualizado correctamente !!!");
 									System.out.println();
 								}
 								// El bucle se ejecuta mientras que la confirmación no es Y o N
@@ -823,7 +850,7 @@ public class ClientesMain {
 							break;
 					}
 					// run el bucle hasta que el caso sea 0
-				} while (!data.equals("0") && !data.equals("10"));
+				} while (!data.equals("0") && !data.equals("11"));
 			}
 			// catch exception and show message in case there's an error
 		} catch (IOException | NumberFormatException nfe) {
