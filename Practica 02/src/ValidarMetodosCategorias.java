@@ -1,3 +1,8 @@
+import java.util.ArrayList;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 /**
 * CATEGORIAS,getters and setters.
 * @author JAVATAR.
@@ -5,10 +10,6 @@
 * @since Fundamentos de bases de datos, Prática 2.
 */
 
-import java.util.ArrayList;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 
 /** 
  * CLASE PARA VALIDAR METODOS DE CATEGORIAS
@@ -156,7 +157,7 @@ public class ValidarMetodosCategorias {
 	 * está en la lista. Si devuelve "verdadero"
 	 */
 
-	public static boolean checkID(int id, ArrayList<Clientes> list) {
+	public static boolean checkID(int id, ArrayList<Categorias> list) {
 	
 		boolean check = false;
 
@@ -170,7 +171,7 @@ public class ValidarMetodosCategorias {
 	}
 
 	// Método que verifica el número de teléfono
-	public static String getPhone(String lineMessage) {
+	public static String getNum(String lineMessage) {
 	
 		boolean flag = true;
 		String letters = "";
