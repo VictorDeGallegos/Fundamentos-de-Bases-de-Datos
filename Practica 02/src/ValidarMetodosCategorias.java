@@ -10,8 +10,7 @@ import java.io.InputStreamReader;
 * @since Fundamentos de bases de datos, Prática 2.
 */
 
-
-/** 
+/**
  * CLASE PARA VALIDAR METODOS DE CATEGORIAS
  */
 
@@ -21,13 +20,14 @@ public class ValidarMetodosCategorias {
 	static BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
 	/**
-	 *  Método que verifica si la entrada del usuario es solo letras y muestra
-	 *  mensajes de error en caso de que la entrada sea otra cosa (por ejemplo: números)
+	 * Método que verifica si la entrada del usuario es solo letras y muestra
+	 * mensajes de error en caso de que la entrada sea otra cosa (por ejemplo:
+	 * números)
 	 */
 
 	public static String getOnlyLetters(String lineMessage) {
-		
-		//Variables
+
+		// Variables
 
 		boolean check = true;
 		String letters = "";
@@ -51,38 +51,74 @@ public class ValidarMetodosCategorias {
 				if ((((int) letters.charAt(l) < 65) || ((int) letters.charAt(l) > 90))
 						&& (((int) letters.charAt(l) < 97) || ((int) letters.charAt(l) > 122)))
 					check = false;
-			
+
 			}
 
 			if (check == false)
 				System.out.println("¡Entrada inválida! ¡Intentar otra vez!");
-			
 
 		} while (check == false);// El bucle se ejecuta mientras la verificación == falsa
-		
+
+		return letters;
+	}
+
+	// Método que verifica si la entrada del usuario es solo letras y espacios y
+	// muestra
+	// mensajes de error
+	// en caso de que la entrada sea otra cosa (por ejemplo: números)
+	public static String getOnlyLettersSpaceNumber(String lineMessage) {
+		boolean check = true;
+		String letters = "";
+		// bucle que verificará si la entrada del usuario son letras
+		do {
+			check = true;
+			System.out.print(lineMessage);
+			try {
+				letters = bufferedReader.readLine();
+			} catch (IOException | StringIndexOutOfBoundsException e) {
+				System.out.println("Error al recibir letras");
+			}
+			// condición que atraviesa el tamaño de las letras y cambia el valor a false
+			// ASCII
+			for (int l = 0; l < letters.length(); l++) {
+				if ((((int) letters.charAt(l) < 65) || ((int) letters.charAt(l) > 90))
+						&& (((int) letters.charAt(l) < 97) || ((int) letters.charAt(l) > 122))
+						&& (((int) letters.charAt(l) < 48) || ((int) letters.charAt(l) > 57)) /* 0 - 9 */
+						&& ((int) letters.charAt(l) != 32) /* SPACE */
+						&& ((int) letters.charAt(l) != 35) /* # */
+						&& ((int) letters.charAt(l) != 46) /* . */
+						&& ((int) letters.charAt(l) != 44) /* , */
+						&& ((int) letters.charAt(l) != 47)) /* / */
+
+					check = false;
+			}
+			if (check == false)
+				System.out.println("¡Entrada inválida! ¡Intentar otra vez!");
+			// El bucle se ejecuta mientras la verificación == falsa
+		} while (check == false);
 		return letters;
 	}
 
 	/**
-	 * Método que verifica si el correo electrónico es válido, muestra un mensaje 
-	 * de error en caso de el formato sea incorrecto
+	 * Método que verifica si el correo electrónico es válido, muestra un mensaje de
+	 * error en caso de el formato sea incorrecto
 	 */
 
 	public static String getEmail(String lineMessage) {
-		
-		//Variables
+
+		// Variables
 
 		boolean check = true;
 		String letters = "";
-		
+
 		// bucle que comprobará el formato del correo electrónico
 		do {
-		
+
 			check = true;
 			System.out.print(lineMessage);
-		
+
 			try {
-				
+
 				letters = bufferedReader.readLine();
 
 			} catch (IOException e) {
@@ -102,16 +138,16 @@ public class ValidarMetodosCategorias {
 
 			if (check == false)
 				System.out.println("¡Entrada inválida! ¡Intentar otra vez!");
-			
+
 			else {
-				
+
 				if (!letters.contains("@")) {
-					
+
 					System.out.println("Formato no válido, ingrese correo electrónico valido");
 					check = false;
 
 				} else if (!letters.contains(".")) {
-					
+
 					System.out.println("Formato no válido, ingrese correo electrónico valido");
 					check = false;
 
@@ -126,39 +162,37 @@ public class ValidarMetodosCategorias {
 		return letters;
 	}
 
-
 	/**
-	 * Método que comprueba si el campo está vacío, muestra 
-	 * un mensaje de error en caso de que sea falso
+	 * Método que comprueba si el campo está vacío, muestra un mensaje de error en
+	 * caso de que sea falso
 	 */
 
 	public static boolean emptyField(String fieldValue) {
-	
+
 		boolean check = false;
 
-		/** 
-		 * Cadena [] vacía = nueva Cadena [x]; 
-		 * recorremos los estudiantes de la lista
+		/**
+		 * Cadena [] vacía = nueva Cadena [x]; recorremos los estudiantes de la lista
 		 */
-	
+
 		if (fieldValue.isEmpty()) {
 
 			check = true;
-			
+
 			System.out.println("\n El campo está vacío, ingrese la entrada. \n");
-			
+
 		}
 
 		return check;
 	}
 
-
-	/**Método que comprueba si la identificación 
-	 * está en la lista. Si devuelve "verdadero"
+	/**
+	 * Método que comprueba si la identificación está en la lista. Si devuelve
+	 * "verdadero"
 	 */
 
 	public static boolean checkID(int id, ArrayList<Categorias> list) {
-	
+
 		boolean check = false;
 
 		// bucle que ejecuta la lista en busca de la identificación
@@ -172,24 +206,24 @@ public class ValidarMetodosCategorias {
 
 	// Método que verifica el número de teléfono
 	public static String getNum(String lineMessage) {
-	
+
 		boolean flag = true;
 		String letters = "";
-		
+
 		/**
-		 * bucle que ejecutará el programa para verificar el número 
-		 * de teléfono y tratar las excepciones si hay algun error
+		 * bucle que ejecutará el programa para verificar el número de teléfono y tratar
+		 * las excepciones si hay algun error
 		 */
 		do {
-		
+
 			flag = true;
 			System.out.print(lineMessage);
-		
+
 			try {
-		
+
 				letters = bufferedReader.readLine();
-		
-				if (letters.length() != 10) {
+
+				if (letters.length() < 0) {
 					flag = false;
 				}
 				for (int l = 0; l < letters.length(); l++) {
@@ -200,13 +234,14 @@ public class ValidarMetodosCategorias {
 				flag = false;
 			}
 
-			/**condición que muestra un mensaje en caso de que la
-			 *  entrada del usuario esté en el formato incorrecto
+			/**
+			 * condición que muestra un mensaje en caso de que la entrada del usuario esté
+			 * en el formato incorrecto
 			 */
 			if (flag == false)
-				System.out.println("Numero invalido! Ingresa un numero de telefono valido (10 digitos - solo numeros).");
+				System.out.println("Numero invalido! Ingresa un numero de productos valido (solo numeros).");
 		}
-		
+
 		// condición que ejecutará el ciclo mientras la bandera sea falsa
 		while (flag == false);
 		return letters;
