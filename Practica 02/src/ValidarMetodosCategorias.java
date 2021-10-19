@@ -100,7 +100,7 @@ public class ValidarMetodosCategorias {
 	}
 
 	/**
-	 * Método que verifica si el correo electrónico es válido, muestra un mensaje de
+	 * Método que verifica, muestra un mensaje de
 	 * error en caso de el formato sea incorrecto
 	 */
 

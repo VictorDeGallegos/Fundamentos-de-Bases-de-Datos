@@ -90,10 +90,10 @@ public class CategoriasMain {
 			while (line != null) {
 
 				/**
-				 * 1.- Se dividira con ";" para una lectura mas rapida y eficiente. 2.-
-				 * Crearemos un objeto Categoria con sus atributos como: nombre de la categoria,
-				 * descripcion de la categoria, numero de productos en la categoria. 3.- Estos
-				 * atributos se agregan al ArrayList y despues sigue leyendo las lineas
+				 * 1.- Se dividira con ";" para una lectura mas rapida y eficiente. 
+				 * 2.- Crearemos un objeto Categoria con sus atributos como: nombre de la categoria,
+				 * descripcion de la categoria, numero de productos en la categoria. 
+				 * 3.- Estos atributos se agregan al ArrayList y despues sigue leyendo las lineas
 				 */
 				String[] data = line.split(";");
 
@@ -190,7 +190,6 @@ public class CategoriasMain {
 				// condición del caso del interruptor para salir del programa, la entrada del
 				// caso es 'x'
 				// mostrar mensaje en la pantalla y escribir la información de en el archivo
-
 				case "x":
 					System.out.println("*** Gracias por confiar en JAVATAR - Grupo Fundamentos de Bases de Datos ***");
 					writeFile();
@@ -411,8 +410,7 @@ public class CategoriasMain {
 		String input = " ";
 
 		/**
-		 * Intente obtener información del usuario para refinar la búsqueda por Id de
-		 * Categoria, nombre o apellido paterno
+		 * Intente obtener información del usuario para refinar la búsqueda por Id de Categoria.
 		 */
 		try {
 			System.out.println(" Buscar categorias por nombre ");
@@ -454,7 +452,7 @@ public class CategoriasMain {
 					 */
 					if (found == false) {
 
-						System.out.println("***** Nombre no encontrado :( *****\n");
+						System.out.println("***** Categoria no encontrada :( *****\n");
 
 					}
 
@@ -523,8 +521,8 @@ public class CategoriasMain {
 	// Metodo modify Categorias
 	public void modifyCategoria() {
 		/*
-		 * El programa debe cambiar los detalles (apellidoPaterno, apellidoMaterno
-		 * nombre, email, telefono) excepto Los cambios de número de categoria deben
+		 * El programa debe cambiar los detalles (Nombre de Categoria, 
+		 * detalles y numero de productos por categoria estos deben
 		 * guardarse en la lista y el archivo
 		 */
 		// declarar variables y darles valores
@@ -547,7 +545,7 @@ public class CategoriasMain {
 			Categorias cat = null;
 			// bucle que ejecuta la lista
 			for (Categorias s : list) {
-				// si lID está en la lista, muestra los detalles de Categoria y
+				// si el ID está en la lista, muestra los detalles de Categoria y
 				// cambia la bandera a verdadera
 				if (String.valueOf(s.getId()).contains(String.valueOf(input))) {
 					// System.out.println(s);
