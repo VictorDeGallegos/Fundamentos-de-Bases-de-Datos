@@ -25,8 +25,12 @@ public class CategoriasMain {
 	static File file = new File(archivoCategorias); // Objeto File y recibe archivoCategorias como parametro
 	static FileReader fileReader = null; // declaracion de FileReader
 	static BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in)); // Creacion de
-																																																// BufferedReader para
-																																																// entrada de usuario
+
+	/**
+	 * @param args
+	 */
+	// BufferedReader para
+	// entrada de usuario
 
 	public static void main(String[] args) {
 		new CategoriasMain(); // Creacion del objeto
@@ -90,10 +94,10 @@ public class CategoriasMain {
 			while (line != null) {
 
 				/**
-				 * 1.- Se dividira con ";" para una lectura mas rapida y eficiente. 
-				 * 2.- Crearemos un objeto Categoria con sus atributos como: nombre de la categoria,
-				 * descripcion de la categoria, numero de productos en la categoria. 
-				 * 3.- Estos atributos se agregan al ArrayList y despues sigue leyendo las lineas
+				 * 1.- Se dividira con ";" para una lectura mas rapida y eficiente. 2.-
+				 * Crearemos un objeto Categoria con sus atributos como: nombre de la categoria,
+				 * descripcion de la categoria, numero de productos en la categoria. 3.- Estos
+				 * atributos se agregan al ArrayList y despues sigue leyendo las lineas
 				 */
 				String[] data = line.split(";");
 
@@ -410,7 +414,8 @@ public class CategoriasMain {
 		String input = " ";
 
 		/**
-		 * Intente obtener información del usuario para refinar la búsqueda por Id de Categoria.
+		 * Intente obtener información del usuario para refinar la búsqueda por Id de
+		 * Categoria.
 		 */
 		try {
 			System.out.println(" Buscar categorias por nombre ");
@@ -521,9 +526,8 @@ public class CategoriasMain {
 	// Metodo modify Categorias
 	public void modifyCategoria() {
 		/*
-		 * El programa debe cambiar los detalles (Nombre de Categoria, 
-		 * detalles y numero de productos por categoria estos deben
-		 * guardarse en la lista y el archivo
+		 * El programa debe cambiar los detalles (Nombre de Categoria, detalles y numero
+		 * de productos por categoria estos deben guardarse en la lista y el archivo
 		 */
 		// declarar variables y darles valores
 		int input = 0;

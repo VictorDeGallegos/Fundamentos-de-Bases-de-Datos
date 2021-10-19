@@ -25,8 +25,12 @@ public class ProveedoresMain {
   static File file = new File(archivo); // Objeto File y recibe archivo como parametro
   static FileReader fileReader = null; // declaracion de FileReader
   static BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in)); // Creacion de
-                                                                                               // BufferedReader para
-                                                                                               // entrada de usuario
+
+  /**
+   * @param args
+   */
+  // BufferedReader para
+  // entrada de usuario
 
   public static void main(String[] args) {
     new ProveedoresMain(); // Creacion del objeto

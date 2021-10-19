@@ -14,6 +14,10 @@ public class ValidarMetodosProducto {
 	// Variable Global
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
+	/**
+	 * @param lineMessage
+	 * @return String
+	 */
 	// Método que verifica si la entrada del usuario es solo letras y muestra
 	// mensajes de error
 	// en caso de que la entrada sea otra cosa (por ejemplo: números)
@@ -43,6 +47,10 @@ public class ValidarMetodosProducto {
 		return letters;
 	}
 
+	/**
+	 * @param lineMessage
+	 * @return String
+	 */
 	// Método que verifica si la entrada del usuario es solo letras y espacios y
 	// muestra
 	// mensajes de error
@@ -75,6 +83,10 @@ public class ValidarMetodosProducto {
 		return letters;
 	}
 
+	/**
+	 * @param lineMessage
+	 * @return String
+	 */
 	// Método que verifica si la entrada del usuario es solo numeros
 	// numeros
 	// muestra
@@ -106,6 +118,10 @@ public class ValidarMetodosProducto {
 		return letters;
 	}
 
+	/**
+	 * @param lineMessage
+	 * @return String
+	 */
 	// Método que verifica si la entrada del usuario es solo letras, espacios y
 	// numeros
 	// muestra
@@ -140,6 +156,10 @@ public class ValidarMetodosProducto {
 		return letters;
 	}
 
+	/**
+	 * @param fieldValue
+	 * @return boolean
+	 */
 	// Método que comprueba si el campo está vacío, muestra un mensaje de error en
 	// caso de que sea falso
 	public static boolean emptyField(String fieldValue) {
@@ -157,6 +177,11 @@ public class ValidarMetodosProducto {
 		return check;
 	}
 
+	/**
+	 * @param nombre
+	 * @param list
+	 * @return boolean
+	 */
 	// Método que comprueba si un articulo esta en está en la lista. Si devuelve
 	// "verdadero"
 	public static boolean checkNombre(String nombre, ArrayList<Clientes> list) {
@@ -171,6 +196,10 @@ public class ValidarMetodosProducto {
 		return check;
 	}
 
+	/**
+	 * @param lineMessage
+	 * @return String
+	 */
 	// Método que verifica el descuento
 	public static String getDescuento(String lineMessage) {
 		boolean flag = true;
@@ -203,6 +232,11 @@ public class ValidarMetodosProducto {
 		return letters;
 	}
 
+	/**
+	 * @param noDeSerie
+	 * @param list
+	 * @return boolean
+	 */
 	public static boolean checknoDeSerie(int noDeSerie, ArrayList<Producto> list) {
 		boolean check = false;
 
@@ -215,6 +249,10 @@ public class ValidarMetodosProducto {
 		return check;
 	}
 
+	/**
+	 * @param lineMessage
+	 * @return String
+	 */
 	public static String getDiscount(String lineMessage) {
 		boolean flag = true;
 		String letters = "";
@@ -246,6 +284,10 @@ public class ValidarMetodosProducto {
 		return letters;
 	}
 
+	/**
+	 * @param lineMessage
+	 * @return String
+	 */
 	// Método que verifica el precio
 	public static String getPrice(String lineMessage) {
 		boolean flag = true;

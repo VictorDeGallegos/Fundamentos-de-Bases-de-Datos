@@ -62,6 +62,10 @@ public class ValidarMetodosCategorias {
 		return letters;
 	}
 
+	/**
+	 * @param lineMessage
+	 * @return String
+	 */
 	// Método que verifica si la entrada del usuario es solo letras y espacios y
 	// muestra
 	// mensajes de error
@@ -100,8 +104,8 @@ public class ValidarMetodosCategorias {
 	}
 
 	/**
-	 * Método que verifica, muestra un mensaje de
-	 * error en caso de el formato sea incorrecto
+	 * Método que verifica, muestra un mensaje de error en caso de el formato sea
+	 * incorrecto
 	 */
 
 	public static String getEmail(String lineMessage) {
@@ -204,6 +208,10 @@ public class ValidarMetodosCategorias {
 		return check;
 	}
 
+	/**
+	 * @param lineMessage
+	 * @return String
+	 */
 	// Método que verifica el número de teléfono
 	public static String getNum(String lineMessage) {
 

@@ -24,52 +24,88 @@ public class Producto {
         this.descuento = descuento;
     }
 
+    /**
+     * @return int
+     */
     // Metodos get y set del producto
 
     public int getNoDeSerie() {
         return noDeSerie;
     }
 
+    /**
+     * @param noDeSerie
+     */
     public void setNoDeSerie(int noDeSerie) {
         this.noDeSerie = noDeSerie;
     }
 
+    /**
+     * @return String
+     */
     public String getPrecio() {
         return precio;
     }
 
+    /**
+     * @param precio
+     */
     public void setPrecio(String precio) {
         this.precio = precio;
     }
 
+    /**
+     * @return String
+     */
     public String getStock() {
         return stock;
     }
 
+    /**
+     * @param stock
+     */
     public void setStock(String stock) {
         this.stock = stock;
     }
 
+    /**
+     * @return String
+     */
     public String getDescripcion() {
         return descripcion;
     }
 
+    /**
+     * @param descripcion
+     */
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
 
+    /**
+     * @return String
+     */
     public String getNombre() {
         return nombre;
     }
 
+    /**
+     * @param nombre
+     */
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
+    /**
+     * @return String
+     */
     public String getDescuento() {
         return descuento;
     }
 
+    /**
+     * @param descuento
+     */
     public void setDescuento(String descuento) {
         this.descuento = descuento;
     }

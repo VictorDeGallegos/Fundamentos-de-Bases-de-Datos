@@ -14,6 +14,10 @@ public class ValidarMetodosProveedores {
   // Variable Global
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
+  /**
+   * @param lineMessage
+   * @return String
+   */
   // Método que verifica si la entrada del usuario es solo letras y muestra
   // mensajes de error
   // en caso de que la entrada sea otra cosa (por ejemplo: números)
@@ -43,6 +47,10 @@ public class ValidarMetodosProveedores {
     return letters;
   }
 
+  /**
+   * @param lineMessage
+   * @return String
+   */
   // Método que verifica si la entrada del usuario es solo letras y espacios y
   // muestra
   // mensajes de error
@@ -75,6 +83,10 @@ public class ValidarMetodosProveedores {
     return letters;
   }
 
+  /**
+   * @param lineMessage
+   * @return String
+   */
   // Método que verifica si la entrada del usuario es solo letras y espacios y
   // muestra
   // mensajes de error
@@ -112,6 +124,10 @@ public class ValidarMetodosProveedores {
     return letters;
   }
 
+  /**
+   * @param lineMessage
+   * @return String
+   */
   // Método que verifica si la entrada del usuario es solo letras y espacios y
   // muestra
   // mensajes de error
@@ -142,6 +158,10 @@ public class ValidarMetodosProveedores {
     return letters;
   }
 
+  /**
+   * @param lineMessage
+   * @return String
+   */
   // Método que verifica si el correo electrónico es válido, muestra un mensaje de
   // error en caso de el formato sea incorrecto
   public static String getEmail(String lineMessage) {
@@ -186,6 +206,10 @@ public class ValidarMetodosProveedores {
     return letters;
   }
 
+  /**
+   * @param lineMessage
+   * @return String
+   */
   // Método que verifica si el correo electrónico es válido, muestra un mensaje de
   // error en caso de el formato sea incorrecto
   public static String getPassword(String lineMessage) {
@@ -212,6 +236,10 @@ public class ValidarMetodosProveedores {
     return letters;
   }
 
+  /**
+   * @param lineMessage
+   * @return String
+   */
   // Método que verifica si la fecha de nacimiento es válido, muestra un mensaje
   // de
   // error en caso de el formato sea incorrecto
@@ -247,6 +275,10 @@ public class ValidarMetodosProveedores {
     return letters;
   }
 
+  /**
+   * @param lineMessage
+   * @return String
+   */
   // Método que verifica si el genero es válido, muestra un mensaje de
   // error en caso de el formato sea incorrecto
   public static String getGenero(String lineMessage) {
@@ -275,6 +307,10 @@ public class ValidarMetodosProveedores {
     return letters;
   }
 
+  /**
+   * @param lineMessage
+   * @return String
+   */
   // Método que verifica si el correo curp es válido, muestra un mensaje de
   // error en caso de el formato sea incorrecto
   public static String getCurp(String lineMessage) {
@@ -303,6 +339,10 @@ public class ValidarMetodosProveedores {
     return letters;
   }
 
+  /**
+   * @param fieldValue
+   * @return boolean
+   */
   // Método que comprueba si el campo está vacío, muestra un mensaje de error en
   // caso de que sea falso
   public static boolean emptyField(String fieldValue) {
@@ -320,6 +360,11 @@ public class ValidarMetodosProveedores {
     return check;
   }
 
+  /**
+   * @param id
+   * @param list
+   * @return boolean
+   */
   // Método que comprueba si la identificación está en la lista. Si devuelve
   // "verdadero"
   public static boolean checkID(int id, ArrayList<Proveedores> list) {
@@ -334,6 +379,10 @@ public class ValidarMetodosProveedores {
     return check;
   }
 
+  /**
+   * @param lineMessage
+   * @return String
+   */
   // Método que verifica los puntos de promociones
   public static String getPromo(String lineMessage) {
     boolean flag = true;
@@ -367,6 +416,10 @@ public class ValidarMetodosProveedores {
     return letters;
   }
 
+  /**
+   * @param lineMessage
+   * @return String
+   */
   // Método que verifica la edad
   public static String getEdad(String lineMessage) {
     boolean flag = true;
@@ -400,6 +453,10 @@ public class ValidarMetodosProveedores {
     return letters;
   }
 
+  /**
+   * @param lineMessage
+   * @return String
+   */
   // Metodo para verificar telefono
   public static String getPhone(String lineMessage) {
     boolean flag = true;

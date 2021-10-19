@@ -30,6 +30,9 @@ public class ProductosMain {
 	// crear un nuevo BufferedReader para leer la entrada del usuario
 	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
+	/**
+	 * @param args
+	 */
 	// Create an object if itself
 	public static void main(String[] args) {
 		new ProductosMain();

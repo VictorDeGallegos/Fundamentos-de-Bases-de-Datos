@@ -35,38 +35,62 @@ public class Categorias {
 		this.nombreCategoria = nombreCategoria;
 	}
 
+	/**
+	 * @return String
+	 */
 	public String getNombreCategoria() {
 		return this.nombreCategoria;
 	}
 
+	/**
+	 * @param descripcionCategoria
+	 */
 	// Descripcion de la categoria
 
 	public void setDescripcionCategoria(String descripcionCategoria) {
 		this.descripcionCategoria = descripcionCategoria;
 	}
 
+	/**
+	 * @return String
+	 */
 	public String getDescripcionCategoria() {
 		return this.descripcionCategoria;
 	}
 
+	/**
+	 * @param numeroProductos
+	 */
 	// Numero de productos en la categoria
 
 	public void setNumeroProductos(String numeroProductos) {
 		this.numeroProductos = numeroProductos;
 	}
 
+	/**
+	 * @return String
+	 */
 	public String getNumeroProductos() {
 		return this.numeroProductos;
 	}
 
+	/**
+	 * @param id
+	 */
 	public void setId(int id) {
 		this.id = id;
 	}
 
+	/**
+	 * @return int
+	 */
 	public int getId() {
 		return this.id;
 	}
 
+	/**
+	 * @return String
+	 */
 	// ToString
 	public String toString() {
 

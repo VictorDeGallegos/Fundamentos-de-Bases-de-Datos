@@ -24,47 +24,80 @@ public class Proveedores {
     this.id = id;
   }
 
+  /**
+   * @param rfc
+   */
   // setters y getters
   public void setRfc(String rfc) {
     this.rfc = rfc;
   }
 
+  /**
+   * @param direccion
+   */
   public void setDireccion(String direccion) {
     this.direccion = direccion;
   }
 
+  /**
+   * @param razonSocial
+   */
   public void setRazonSocial(String razonSocial) {
     this.razonSocial = razonSocial;
   }
 
+  /**
+   * @param telefono
+   */
   public void setTelefono(String telefono) {
     this.telefono = telefono;
   }
 
+  /**
+   * @return String
+   */
   public String getRfc() {
     return this.rfc;
   }
 
+  /**
+   * @return String
+   */
   public String getDireccion() {
     return this.direccion;
   }
 
+  /**
+   * @return String
+   */
   public String getRazonSocial() {
     return this.razonSocial;
   }
 
+  /**
+   * @return String
+   */
   public String getTelefono() {
     return this.telefono;
   }
 
+  /**
+   * @param id
+   */
   public void setId(int id) {
     this.id = id;
   }
 
+  /**
+   * @return int
+   */
   public int getId() {
     return this.id;
   }
 
+  /**
+   * @return String
+   */
   // clase toString
   public String toString() {
 

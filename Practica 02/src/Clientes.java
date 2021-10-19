@@ -41,111 +41,192 @@ public class Clientes {
 		this.puntosdePromociones = puntosdePromociones;
 	}
 
+	/**
+	 * @param id
+	 */
 	// setters y getters
 	public void setId(int id) {
 		this.id = id;
 	}
 
+	/**
+	 * @param apellidoPaterno
+	 */
 	public void setApellidoPaterno(String apellidoPaterno) {
 		this.apellidoPaterno = apellidoPaterno;
 	}
 
+	/**
+	 * @param apellidoMaterno
+	 */
 	public void setApellidoMaterno(String apellidoMaterno) {
 		this.apellidoMaterno = apellidoMaterno;
 	}
 
+	/**
+	 * @param nombre
+	 */
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 
+	/**
+	 * @param curp
+	 */
 	public void setCurp(String curp) {
 		this.curp = curp;
 	}
 
+	/**
+	 * @param genero
+	 */
 	public void setGenero(String genero) {
 		this.genero = genero;
 	}
 
+	/**
+	 * @param fechadeNacimiento
+	 */
 	public void setFechaDeNacimiento(String fechadeNacimiento) {
 		this.fechadeNacimiento = fechadeNacimiento;
 	}
 
+	/**
+	 * @param edad
+	 */
 	public void setEdad(String edad) {
 		this.edad = edad;
 	}
 
+	/**
+	 * @param direccion
+	 */
 	public void setDireccion(String direccion) {
 		this.direccion = direccion;
 	}
 
+	/**
+	 * @param email
+	 */
 	public void setEmail(String email) {
 		this.email = email;
 	}
 
+	/**
+	 * @param password
+	 */
 	public void setPassword(String password) {
 		this.password = password;
 	}
 
+	/**
+	 * @param metododePago
+	 */
 	public void setMetodoDePago(String metododePago) {
 		this.metododePago = metododePago;
 	}
 
+	/**
+	 * @param puntosdePromociones
+	 */
 	public void setpuntosdePromociones(String puntosdePromociones) {
 		this.puntosdePromociones = puntosdePromociones;
 	}
 
+	/**
+	 * @return int
+	 */
 	public int getId() {
 		return this.id;
 	}
 
+	/**
+	 * @return String
+	 */
 	public String getApellidoPaterno() {
 		return this.apellidoPaterno;
 	}
 
+	/**
+	 * @return String
+	 */
 	public String getApellidoMaterno() {
 		return this.apellidoMaterno;
 	}
 
+	/**
+	 * @return String
+	 */
 	public String getNombre() {
 		return this.nombre;
 	}
 
+	/**
+	 * @return String
+	 */
 	public String getCurp() {
 		return this.curp;
 	}
 
+	/**
+	 * @return String
+	 */
 	public String getGenero() {
 		return this.genero;
 	}
 
+	/**
+	 * @return String
+	 */
 	public String getFechaDeNacimiento() {
 		return this.fechadeNacimiento;
 	}
 
+	/**
+	 * @return String
+	 */
 	public String getEdad() {
 		return this.edad;
 	}
 
+	/**
+	 * @return String
+	 */
 	public String getDireccion() {
 		return this.direccion;
 	}
 
+	/**
+	 * @return String
+	 */
 	public String getEmail() {
 		return this.email;
 	}
 
+	/**
+	 * @return String
+	 */
 	public String getPassword() {
 		return this.password;
 	}
 
+	/**
+	 * @return String
+	 */
 	public String getMetodoDePago() {
 		return this.metododePago;
 	}
 
+	/**
+	 * @return String
+	 */
 	public String getpuntosdePromociones() {
 		return this.puntosdePromociones;
 	}
 
+	/**
+	 * @return String
+	 */
 	// class toString
 	public String toString() {
 
